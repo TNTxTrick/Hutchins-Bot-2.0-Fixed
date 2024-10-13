@@ -35,7 +35,7 @@ module.exports = {
             const startIndex = (page - 1) * commandsPerPage;
             const endIndex = Math.min(startIndex + commandsPerPage, visibleCommandFiles.length);
 
-            let helpMessage = `╭─『 Commands List 』\n`;
+            let helpMessage = `╭─『 Danh sách lệnh 』\n`;
             const displayedCommands = visibleCommandFiles.slice(startIndex, endIndex);
 
             displayedCommands.forEach(file => {
@@ -43,7 +43,7 @@ module.exports = {
                 helpMessage += `│✧ ${commandInfo.name || "Unknown"}\n`;
             });
 
-            helpMessage += `╰───────────◊\n\n(Page ${page}/${totalPages})\nType ${adminConfig.prefix}help <page number> to see more commands.\n\nDev: ${adminConfig.ownerName}`;
+            helpMessage += `╰───────────◊\n\n(Trang ${page}/${totalPages})\nSử dụng ${adminConfig.prefix}help <số trang> để xem nhiều lệnh.\n\nDev: ${adminConfig.ownerName}`;
 
             return api.shareContact(helpMessage, api.getCurrentUserID(), event.threadID);
         }
