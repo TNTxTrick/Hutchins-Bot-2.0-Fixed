@@ -307,11 +307,11 @@ const payload = {
         axios.post('https://products.popsww.com/api/v5/auths/register', popsData, { headers: popsHeaders })
       ])
       .then(() => {
-        successCount += 8;
+        successCount += 9;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 8;
+        failureCount += 9;
         updateMessage();
       });
     };
