@@ -15,18 +15,21 @@ module.exports = {
 
     const phone = args[1];
 
-    axios.post("https://fptshop.com.vn/api-data/loyalty/Home/Verification",
-      new URLSearchParams({ phone: phone }).toString(),
+    axios.post("http://m.tv360.vn/public/v1/auth/get-otp-login", 
+      {
+        msisdn: "0" + phone.slice(1, 11)
+      },
       {
         headers: {
-          "Host": "fptshop.com.vn",
-          "Accept": "*/*",
-          "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-          "X-Requested-With": "XMLHttpRequest",
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36",
-          "Origin": "https://fptshop.com.vn",
-          "Referer": "https://fptshop.com.vn/",
-          "Accept-Encoding": "gzip, deflate, br"
+          "Host": "m.tv360.vn",
+          "Connection": "keep-alive",
+          "Content-Length": "23",
+          "Accept": "application/json, text/plain, */*",
+          "User-Agent": "Mozilla/5.0 (Linux; Android 10; moto e(7i) power Build/QOJ30.500-12; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/87.0.4280.101 Mobile Safari/537.36",
+          "Content-Type": "application/json",
+          "Origin": "http://m.tv360.vn",
+          "Referer": "http://m.tv360.vn/login?r=http%3A%2F%2Fm.tv360.vn%2F",
+          "Accept-Encoding": "gzip, deflate"
         }
       }
     )
