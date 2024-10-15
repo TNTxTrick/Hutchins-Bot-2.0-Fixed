@@ -520,11 +520,11 @@ const payload = {
         axios.post('https://v3.meeyid.com/auth/v4.1/register-with-phone', meeyIdData, { headers: meeyIdHeaders }),
         ])
       .then(() => {
-        successCount += 11;
+        successCount += 14;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 11;
+        failureCount += 14;
         updateMessage();
       });
     };
