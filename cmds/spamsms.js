@@ -5,7 +5,7 @@ module.exports = {
   usedby: 0,
   info: "gửi thông báo đến số",
   onPrefix: false,
-  cooldowns: 10,
+  cooldowns: 10, 
 
   onLaunch: function ({ api, event }) {
     const args = event.body.trim().split(" ");
