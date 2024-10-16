@@ -959,10 +959,34 @@ const payload = {
 
     const batdongsanData = {
       'phoneNumber': phone,
-    }
+    };
 
+    const ahamoveHeaders = {
+    'Host': 'api.ahamove.com',
+    'content-length': '114',
+    'sec-ch-ua': '\'Chromium\';v=\'110\', \'Not A(Brand\';v=\'24\', \'Google Chrome\';v=\'110\'',
+    'accept': 'application/json, text/plain, */*',
+    'content-type': 'application/json;charset=UTF-8',
+    'sec-ch-ua-mobile': '?1',
+    'user-agent': 'Mozilla/5.0 (Linux; Linux x86_64; en-US) AppleWebKit/535.30 (KHTML, like Gecko) Chrome/51.0.2716.105 Safari/534',
+    'sec-ch-ua-platform': '\'Android\'',
+    'origin': 'https://app.ahamove.com',
+    'sec-fetch-site': 'same-site',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://app.ahamove.com/',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,ru;q=0.4'
+};
 
-
+    const ahamoveData = {
+      mobile: phone.substring(1, 11),
+    name: 'Tuấn',
+    email: 'cocailondjtcmm12@gmail.com',
+    country_code: 'VN',
+    firebase_sms_auth: 'true'
+};
+      
 
     // Initial message to be edited later
     let messageID = null;
