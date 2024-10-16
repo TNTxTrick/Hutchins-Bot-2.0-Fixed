@@ -980,11 +980,11 @@ const payload = {
 };
 
     const ahamoveData = {
-      mobile: phone.substring(1, 11),
-    name: 'Tuấn',
-    email: 'cocailondjtcmm12@gmail.com',
-    country_code: 'VN',
-    firebase_sms_auth: 'true', 
+      'mobile': phone.substring(1, 11),
+    'name': 'Tuấn',
+    'email': 'cocailondjtcmm12@gmail.com',
+    'country_code': 'VN',
+    'firebase_sms_auth': 'true', 
 };
       
 
