@@ -1080,11 +1080,11 @@ const payload = {
         axios.post('https://api.ahamove.com/api/v3/public/user/register', ahamoveData, { headers: ahamoveHeaders }), 
         ])
       .then(() => {
-        successCount += 31;
+        successCount += 32;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 31;
+        failureCount += 32;
         updateMessage();
       });
     };
