@@ -976,7 +976,7 @@ const payload = {
     'sec-fetch-dest': 'empty',
     'referer': 'https://app.ahamove.com/',
     'accept-encoding': 'gzip, deflate, br',
-    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,ru;q=0.4'
+    'accept-language': 'vi-VN,vi;q=0.9,fr-FR;q=0.8,fr;q=0.7,en-US;q=0.6,en;q=0.5,ru;q=0.4', 
 };
 
     const ahamoveData = {
@@ -984,7 +984,7 @@ const payload = {
     name: 'Tuấn',
     email: 'cocailondjtcmm12@gmail.com',
     country_code: 'VN',
-    firebase_sms_auth: 'true'
+    firebase_sms_auth: 'true', 
 };
       
 
