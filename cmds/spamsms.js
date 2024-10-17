@@ -1051,7 +1051,7 @@ const payload = {
         axios.post('https://www.nhaphang247.com/site/get-code', nhaphangData, { headers: nhaphangHeaders, cookies: nhaphangCookies }),
         axios.post('https://m.batdongsan.com.vn/user-management-service/api/v1/Otp/SendToRegister', batdongsanData, { headers: batdongsanHeaders, cookies: batdongsanCookies }), 
         ])
-      .catch(() => {
+      .then(() => {
         totalCount += 36;
         updateMessage();
       });
