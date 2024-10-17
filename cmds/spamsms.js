@@ -1077,7 +1077,7 @@ const payload = {
     // Stop spamming after the specified duration
     setTimeout(() => {
       clearInterval(interval);
-      api.sendMessage(`🔥 Đã dừng spam SMS cho số ${phone}. 📌 Số lần spam: ${totalCount}`, event.threadID, event.messageID);
+      api.sendMessage(`🔥 Đã dừng spam SMS cho số ${phone}.`, event.threadID, event.messageID);
     }, spamDuration);
   }
 };
