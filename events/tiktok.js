@@ -41,7 +41,7 @@ async function downloadAndSendTikTokContent(url, api, threadID, messageID) {
                 console.log('Downloaded TikTok video file.');
 
                 api.sendMessage({
-                    body: `𝗧𝗶𝗸𝘁𝗼𝗸 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿 𝗔𝘂𝘁𝗼\n━━━━━━━━━━━━━━━━━━\n\n𝙲𝚘𝚗𝚝𝚎𝚗𝚝: ${data.title}\n\n𝙻𝚒𝚔𝚎𝚜: ${data.digg_count}\n\n𝙲𝚘𝚖𝚖𝚎𝚗𝚝𝚜: ${data.comment_count}`,
+                    body: ` TikTok\n━━━━━━━━━━━━━━━━━━\n\nTiêu đề: ${data.title}\n\nLượt thích: ${data.digg_count}\n\nBình luận: ${data.comment_count}`,
                     attachment: fs.createReadStream(filePath)
                 }, threadID, () => {
                     fs.unlinkSync(filePath);
