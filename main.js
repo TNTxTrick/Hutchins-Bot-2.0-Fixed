@@ -216,43 +216,43 @@ const startBot = () => {
         const greetings = [
             {
                 cronTime: '0 5 * * *',
-                messages: [`Good morning! Have a great day ahead!`],
+                messages: [`Sáng rồi dậy thôi các em`],
             },
             {
                 cronTime: '0 8 * * *',
-                messages: [`Hello Everyone Time Check 8:00 AM :>`],
+                messages: [`Chào buổi sáng bây giờ là 8h`],
             },
             {
                 cronTime: '0 10 * * *',
-                messages: [`Hello everyone! How's your day going?`],
+                messages: [`Tới giờ nấu cơm rồi`],
             },
             {
                 cronTime: '0 12 * * *',
-                messages: [`Lunchtime reminder: Take a break and eat well!`],
+                messages: [`Chào các em giờ là 12h`],
             },
             {
                 cronTime: '0 14 * * *',
-                messages: [`Reminder: Don't forget your tasks for today!`],
+                messages: [`Chúc buổi chiều vui vẻ`],
             },
             {
                 cronTime: '0 18 * * *',
-                messages: [`Good evening! Relax and enjoy your evening.`],
+                messages: [`Buổi tối vui vẻ nhé các em`],
             },
             {
                 cronTime: '0 20 * * *',
-                messages: [`Time to wind down. Have a peaceful evening.`],
+                messages: [`Bây giờ là 8h mày buồn ngủ chưa`],
             },
             {
                 cronTime: '0 22 * * *',
-                messages: [`Good night! Have a restful sleep.`],
+                messages: [`Tới giờ ngủ rồi`],
             },
             {
                 cronTime: '0 7 * * *',
-                messages: async () => `Good morning! Have a great day ahead!\n\n${await fetchWeather()}`,
+                messages: async () => `Chào buổi sáng\n\n${await fetchWeather()}`,
             },
             {
                 cronTime: '0 19 * * *',
-                messages: async () => `Good evening! Relax and enjoy your evening.\n\n${await fetchWeather()}`,
+                messages: async () => `Chúc bạn có một buổi tối vv\n\n${await fetchWeather()}`,
             }
         ];
 
@@ -267,7 +267,7 @@ const startBot = () => {
                     });
                 }
             }, {
-                timezone: "Asia/Manila"
+                timezone: "Asia/Ho_Chi_Minh"
             });
         });
 
