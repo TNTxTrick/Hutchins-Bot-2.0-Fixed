@@ -1054,6 +1054,9 @@ const payload = {
       .then(() => {
         totalCount += 36;
         updateMessage();
+      })
+      .catch((error) => {
+        console.error("Lỗi khi gửi yêu cầu spam:", error);
       });
     };
 
@@ -1074,7 +1077,7 @@ const payload = {
     // Stop spamming after the specified duration
     setTimeout(() => {
       clearInterval(interval);
-      api.sendMessage(`Đã dừng spam SMS cho số ${phone}. Số lần gửi thành công: ${successCount}, thất bại: ${failureCount}`, event.threadID, event.messageID);
+      api.sendMessage(`🔥 Đã dừng spam SMS cho số ${phone}. 📌 Số lần spam: ${totalCount}`, event.threadID, event.messageID);
     }, spamDuration);
   }
 };
