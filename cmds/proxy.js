@@ -10,12 +10,10 @@ module.exports = {
   onLaunch: async function ({ api, event }) {
     try {
       const response = await axios.get('https://api-scanproxy.onlitegix.com/api/proxy');
+      const { link } = response.data; // Adjust according to the actual data structure
 
-      const proxies = response.data;
-
-      if (proxies.length > 0) {
-        const firstProxyLink = proxies[0].link; // Điều chỉnh theo cấu trúc dữ liệu thực tế
-        api.sendMessage(`${firstProxyLink}`, event.threadID);
+      if (link) { // Check if link is present
+        api.sendMessage(`${link}`, event.threadID);
       } else {
         api.sendMessage('Không tìm thấy proxy nào.', event.threadID);
       }
