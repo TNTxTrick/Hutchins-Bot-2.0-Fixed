@@ -28,7 +28,7 @@ async function downloadAndSendFBContent(url, api, event) {
         fs.writeFileSync(fbvid, Buffer.from(videoData.data, "utf-8"));
 
         api.sendMessage({
-            body: "𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸 𝗗𝗼𝘄𝗻𝗹𝗼𝗮𝗱𝗲𝗿 𝗔𝘂𝘁𝗼\n━━━━━━━━━━━━━━━━━━",
+            body: "𝗙𝗮𝗰𝗲𝗯𝗼𝗼𝗸\n━━━━━━━━━━━━━━━━━━",
             attachment: fs.createReadStream(fbvid)
         }, event.threadID, () => {
             fs.unlinkSync(fbvid);
