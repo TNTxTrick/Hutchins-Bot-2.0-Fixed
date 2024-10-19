@@ -109,7 +109,7 @@ const handleListenEvents = (api, commands, eventCommands, threadsDB, usersDB) =>
             }
 
             if (isPrefixed && commandName === '') {
-                const notFoundMessage = `The command is not found. Please type ${adminConfig.prefix}help to see all commands.`;
+                const notFoundMessage = `⚠️ Lệnh không tồn tại sử dụng ${adminConfig.prefix}help để xem tất cả lệnh.`;
                 return api.sendMessage(notFoundMessage, threadID);
             }
 
