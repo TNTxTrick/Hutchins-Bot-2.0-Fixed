@@ -3,7 +3,7 @@ const fs = require("fs");
 const path = require("path");
 
 module.exports = {
-  name: "\n",
+  name: "cos",
   usedby: 0,
   onPrefix: true,
   dev: "tnt",
@@ -23,7 +23,7 @@ module.exports = {
 
       const videoData = videos[0];
       const videoUrl = videoData.play;
-      const message = `⚠️`;
+      const message = `Video cosplay`;
 
       const filePath = path.join(__dirname, `/cache/tiktok_video.mp4`);
       const writer = fs.createWriteStream(filePath);
