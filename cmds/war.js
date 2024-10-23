@@ -1,5 +1,3 @@
-const axios = require('axios');
-
 module.exports = {
   name: "war",
   usedby: 0,
@@ -8,18 +6,23 @@ module.exports = {
   cooldowns: 10,
 
   onLaunch: async function ({ api, event }) {
-    const message = "Có hoa trong họ Geometridae và các bạn có thể lỡ lời khuyên dùng...";
-    const interval = 1000; // 5 seconds between each message (adjust as needed)
-    const maxMessages = 10; // Stop after sending 10 messages (set your limit)
+    const message = "Tin nhắn liên tục...";
+    const interval = 500; // 5 giây giữa mỗi tin nhắn
+    const maxMessages = 5;  // Gửi 5 tin nhắn
 
     for (let i = 0; i < maxMessages; i++) {
-      api.sendMessage(message);
-      await delay(interval); // Wait for the specified interval before sending the next message
+      api.sendMessage(`${message} - Lần ${i + 1}`, event.threadID, (err) => {
+        if (err) {
+          console.error("Error sending message:", err);
+        } else {
+          console.log(`Message ${i + 1} sent successfully!`);
+        }
+      });
+      await delay(interval); // Chờ 5 giây trước khi gửi tiếp
     }
   }
 };
 
-// Helper function to add a delay
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
