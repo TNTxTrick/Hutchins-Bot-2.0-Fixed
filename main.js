@@ -216,43 +216,43 @@ const startBot = () => {
         const greetings = [
             {
                 cronTime: '0 5 * * *',
-                messages: [`Sáng rồi dậy thôi các em`],
+                messages: [`Good morning! Have a great day ahead!`],
             },
             {
                 cronTime: '0 8 * * *',
-                messages: [`Chào buổi sáng bây giờ là 8h`],
+                messages: [`Hello Everyone Time Check 8:00 AM :>`],
             },
             {
                 cronTime: '0 10 * * *',
-                messages: [`Tới giờ nấu cơm rồi`],
+                messages: [`Hello everyone! How's your day going?`],
             },
             {
                 cronTime: '0 12 * * *',
-                messages: [`Chào các em giờ là 12h`],
+                messages: [`Lunchtime reminder: Take a break and eat well!`],
             },
             {
                 cronTime: '0 14 * * *',
-                messages: [`Chúc buổi chiều vui vẻ`],
+                messages: [`Reminder: Don't forget your tasks for today!`],
             },
             {
                 cronTime: '0 18 * * *',
-                messages: [`Buổi tối vui vẻ nhé các em`],
+                messages: [`Good evening! Relax and enjoy your evening.`],
             },
             {
                 cronTime: '0 20 * * *',
-                messages: [`Bây giờ là 8h mày buồn ngủ chưa`],
+                messages: [`Time to wind down. Have a peaceful evening.`],
             },
             {
                 cronTime: '0 22 * * *',
-                messages: [`Tới giờ ngủ rồi`],
+                messages: [`Good night! Have a restful sleep.`],
             },
             {
                 cronTime: '0 7 * * *',
-                messages: async () => `Chào buổi sáng\n\n${await fetchWeather()}`,
+                messages: async () => `Good morning! Have a great day ahead!\n\n${await fetchWeather()}`,
             },
             {
                 cronTime: '0 19 * * *',
-                messages: async () => `Chúc bạn có một buổi tối vv\n\n${await fetchWeather()}`,
+                messages: async () => `Good evening! Relax and enjoy your evening.\n\n${await fetchWeather()}`,
             }
         ];
 
@@ -267,7 +267,7 @@ const startBot = () => {
                     });
                 }
             }, {
-                timezone: "Asia/Ho_Chi_Minh"
+                timezone: "Asia/Manila"
             });
         });
 
@@ -277,7 +277,13 @@ const startBot = () => {
 };
 
 startBot();
+cron.schedule('*/35 * * * *', () => {
+    console.log('Exiting process with code 1...');
+    process.exit(1);
+});
 
+console.log('Auto Restart Bot Successfully Execute of exit process every 35 min');
+                                                 
 if (adminConfig.restart) {
     const restartInterval = adminConfig.restartTime * 60 * 1000;
 
@@ -285,4 +291,3 @@ if (adminConfig.restart) {
         reloadModules();
     }, restartInterval);
 }
-
